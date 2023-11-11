@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLife: 5
+  skillCount: 3
   monster1HP: 300
   monster2HP: 500
   monster3HP: 1000
