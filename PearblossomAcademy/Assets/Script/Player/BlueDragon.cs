@@ -16,7 +16,6 @@ public class BlueDragon : MonoBehaviour
         myPlayer = GameObject.Find("Player").GetComponent<Player>();
         curTime = 0;
         blueDragonDuration = 10;
-        isActivate = false;
     }
 
     void FixedUpdate()
