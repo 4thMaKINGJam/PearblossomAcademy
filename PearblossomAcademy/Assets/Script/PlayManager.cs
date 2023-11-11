@@ -14,6 +14,8 @@ public class PlayManager : MonoBehaviour
     public int monsterFoxCircle = 20;
 
     public int playerBasicAttack = 10; //player 기본 공격 데미지
+    //attack 2~ damage 설정 필요
+    
     
 
     void Start()
