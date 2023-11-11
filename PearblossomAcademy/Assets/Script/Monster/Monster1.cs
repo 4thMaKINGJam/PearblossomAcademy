@@ -34,7 +34,7 @@ public class Monster1 : MonoBehaviour
         Move();
         BasicAttack();  //기본공격
         ReloadBasicAttack(); //기본공격 재장전
-        Debug.Log("현재 monster damage: "+monsterHP);
+        //Debug.Log("현재 monster damage: "+monsterHP);
     }
 
     void Move()
@@ -63,7 +63,7 @@ public class Monster1 : MonoBehaviour
     void OnHit(int damage){
         //구미호 체력 감소
         monsterHP -= damage;
-        Debug.Log("현재 monster damage: "+monsterHP);
+        //Debug.Log("현재 monster damage: "+monsterHP);
         
         //구미호 맞았을 때 표정 변화
         spriteRenderer.sprite = sprites[1];

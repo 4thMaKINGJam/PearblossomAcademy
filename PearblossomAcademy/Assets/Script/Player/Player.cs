@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float speed; //이동속도
-    public int playerBasicAttackDamage; //기본공격의 데미지량
 
-    public float basicAttackDelay; //기본공격 간격 조절
+    public float basicAttackDelay;
+    public float attackDelay; //기본공격 간격 조절
     private float curDelay; 
 
     public GameObject playerBasicAttack; //기본공격 prefab
@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public GameObject Hyunmu;
 
     private GameObject myBlueDragon;
+    private GameObject myJujak;
+    private GameObject myWhiteTiger;
+    private GameObject myHyunmu;
 
     public bool isSkill;
     public int skillIndex;
@@ -31,6 +34,7 @@ public class Player : MonoBehaviour
         player = GetComponent<Rigidbody2D>();  
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         isSkill = false;
+        attackDelay = basicAttackDelay;
         AddSkills();
     }
 
@@ -38,12 +42,15 @@ public class Player : MonoBehaviour
     {
         Move();
         Attack();  //공격
-        ReloadAttack();    //공격 재장전
+        ReloadAttack();  //공격 재장전
     }
 
     void AddSkills()
     {
         myBlueDragon = Instantiate(BlueDragon, transform);
+        myJujak = Instantiate(Jujak, transform);
+        myWhiteTiger = Instantiate(WhiteTiger, transform);
+        myHyunmu = Instantiate(Hyunmu, transform);
     }
 
     void Move()
@@ -59,7 +66,7 @@ public class Player : MonoBehaviour
 
     void Attack()
     {
-        if (curDelay < basicAttackDelay)
+        if (curDelay < attackDelay)
         {
             return;
         }
@@ -71,9 +78,9 @@ public class Player : MonoBehaviour
                 switch(skillIndex)
                 {
                     case 0: myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); break;
-                    case 1: break;
-                    case 2: break;
-                    case 3: break;
+                    case 1: myJujak.GetComponent<Jujak>().GoJujak();break;
+                    case 2: myWhiteTiger.GetComponent<WhiteTiger>().GoWhiteTiger();break;
+                    case 3: myHyunmu.GetComponent<Hyunmu>().GoHyunmu();break;
                     default: break;
                 }
             }
@@ -97,10 +104,43 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Monster1Attack")
+        if(collision.gameObject.tag == "MonsterAttack")
         {
             myPlayManager.playerLife--;
             Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+            StartCoroutine(Flicker());
         }
+
+        if(myPlayManager.playerLife<=0)
+        {
+            myPlayManager.GameOver();
+        }
+    }
+
+    IEnumerator Flicker()
+    {
+        int count = 0;
+
+        while (count < 2)
+        {
+            float fadeCnt = 0;
+            while (fadeCnt < 1.0f)
+            {
+                fadeCnt += 0.1f;
+                yield return new WaitForSeconds(0.01f);
+                this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,fadeCnt);
+            }
+
+            while (fadeCnt > 0f)
+            {
+                fadeCnt -= 0.1f;
+                yield return new WaitForSeconds(0.01f);
+                this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,fadeCnt);
+            }
+
+            count++;
+        }
+
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,1);
     }
 }

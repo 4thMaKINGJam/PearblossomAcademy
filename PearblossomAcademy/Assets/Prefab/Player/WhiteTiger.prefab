@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6243114853804184117}
-  - component: {fileID: 5729802460968997605}
+  - component: {fileID: -7361543636541866409}
   m_Layer: 0
-  m_Name: BlueDragon
+  m_Name: WhiteTiger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5729802460968997605
+--- !u!114 &-7361543636541866409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1308930146578843560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c2b9ed6ef5e18d4db0134d2c65ff0c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0358ff0e95d9c7b488e61647ffa86160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueDragonDuration: 10
-  blueDragonDelay: 0.7
-  blueDragonAttack: {fileID: 4736045913528455272, guid: 6ac46d5c12455004eb92ac53616bbe7e, type: 3}
+  WhiteTigerDuration: 0
+  WhiteTigerShield: {fileID: 4736045913528455272, guid: 140c19ed05c3f854789476db01107e18, type: 3}

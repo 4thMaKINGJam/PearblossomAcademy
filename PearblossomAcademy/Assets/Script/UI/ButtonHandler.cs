@@ -16,10 +16,8 @@ public class ButtonHandler : MonoBehaviour
 
     void Start()
     {
-        // 초기 상태에서는 main_bdrgn 만 활성화되어 있도록 설정
         ActivateObject(main_intro);
 
-        // 각 버튼에 클릭 이벤트 핸들러를 연결
         Button button1 = GameObject.Find("btn_intro").GetComponent<Button>();
         Button button2 = GameObject.Find("btn_bd").GetComponent<Button>();
         Button button3 = GameObject.Find("btn_jj").GetComponent<Button>();
@@ -37,7 +35,7 @@ public class ButtonHandler : MonoBehaviour
         button_start.onClick.AddListener(() => ActivateScene());
     }
 
-    // 모든 오브젝트를 비활성화하고 주어진 오브젝트만 활성화하는 함수
+
     void ActivateObject(GameObject targetObject)
     {
         main_intro.SetActive(false);

@@ -35,4 +35,14 @@ public class PlayManager : MonoBehaviour
         */
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void GameClear()
+    {
+        Time.timeScale = 0;
+    }
+
 }
