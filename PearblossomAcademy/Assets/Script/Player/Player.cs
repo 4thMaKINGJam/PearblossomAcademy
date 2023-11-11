@@ -152,4 +152,13 @@ public class Player : MonoBehaviour
 
         this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,1);
     }
+
+    public void HyunmuDamage()
+    {
+        myPlayManager.monster1HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster2HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster3HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster4HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster5HP -= myPlayManager.playerHyunmuAttack;
+    }
 }

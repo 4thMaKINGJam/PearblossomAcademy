@@ -55,5 +55,7 @@ public class Hyunmu : MonoBehaviour
         GameObject myHyunmuAttack = Instantiate(HyunmuAttack, attackPos, transform.rotation);
         Rigidbody2D rigid = myHyunmuAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+
+        myPlayer.HyunmuDamage();
     }
 }
