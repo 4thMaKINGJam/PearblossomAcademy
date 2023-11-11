@@ -14,10 +14,16 @@ public class ButtonHandler : MonoBehaviour
     public int currentIndex = 0;
     private int unlock_stage;
 
+    GameManager gameManager;
+
+    void Awake(){
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
 
     void Start()
     {
-        unlock_stage = GameManager.instance.stage_count;
+        unlock_stage = gameManager.stage_count;
         Debug.Log(unlock_stage);
 
         for(int i=1; i<6; i++)

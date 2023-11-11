@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    // public static GameManager instance;
     public bool[] usableSkill = new bool[4];
     public bool isGameover = false;
 
@@ -23,25 +23,28 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale=1;
         stage_count = 2;
-        // Find the GameOverImage GameObject as a child of the Canvas
-        gameImage[0] = GameObject.Find("GameOverImage");
-        gameImage[1] = GameObject.Find("GameClearImage");
-        blackScreen[0] = GameObject.Find("BlackScreen");
+        // // Find the GameOverImage GameObject as a child of the Canvas
+        // //객체로 선언
+        // gameImage = new GameObject[2];
+        // blackScreen = new GameObject[1];
+        // gameImage[0] = transform.Find("GameOverImage").gameObject;
+        // gameImage[1] = transform.Find("GameClearImage").gameObject;
+        // blackScreen[0] = transform.Find("BlackScreen").gameObject;
 
 
-        if (instance == null){
-            instance = this;
-        }
-        else{
-            Destroy(gameObject);
-            return;
-        }
-        gameImage[0].SetActive(false);
-        gameImage[1].SetActive(false);
+        // if (instance == null){
+        //     instance = this;
+        // }
+        // else{
+        //     Destroy(gameObject);
+        //     return;
+        // }
+        // gameImage[0].SetActive(false);
+        // gameImage[1].SetActive(false);
 
-        blackScreen[0].enabled = false;
+        // blackScreen[0].SetActive(false);
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
     }
 
 

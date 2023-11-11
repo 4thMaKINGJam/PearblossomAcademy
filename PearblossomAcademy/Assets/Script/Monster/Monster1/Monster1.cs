@@ -17,12 +17,14 @@ public class Monster1 : MonoBehaviour
 
     Rigidbody2D monster1;
     SpriteRenderer spriteRenderer;
+    GameManager gameManager;
    
     void Awake()
     {
         monster1 = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monsterHP = playManager.monster1HP;
         playerBasicAttack = playManager.playerBasicAttack;
         
@@ -76,7 +78,7 @@ public class Monster1 : MonoBehaviour
             spriteRenderer.sprite = sprites[1];
             Time.timeScale = 0;
 
-            GameManager.instance.GameClear();
+            gameManager.GameClear();
             //게임 종료 씬으로 연결
 
         }
