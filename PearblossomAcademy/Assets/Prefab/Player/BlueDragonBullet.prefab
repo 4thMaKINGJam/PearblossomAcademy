@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2238618255342121322}
   m_Layer: 0
   m_Name: BlueDragonBullet
-  m_TagString: PlayerAttack
+  m_TagString: Monster1Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

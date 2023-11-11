@@ -21,9 +21,9 @@ public class Monster1Attack : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // if(collision.gameObject.tag == "PlayerBasicAttack")
-        // {
-        //     Destroy(gameObject);
-        // }
+        if(collision.gameObject.tag == "PlayerBasicAttack")
+        {
+            Destroy(gameObject);
+        }
     }
 }

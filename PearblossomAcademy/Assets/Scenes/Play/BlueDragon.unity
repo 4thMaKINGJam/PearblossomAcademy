@@ -394,7 +394,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLife: 0
-  monsterHP: 0
+  monster1HP: 300
+  monster2HP: 500
+  monster3HP: 1000
+  monster4HP: 1500
+  monster5HP: 3000
+  monsterFoxCircle: 20
+  playerBasicAttack: 0
 --- !u!4 &940022216
 Transform:
   m_ObjectHideFlags: 0
@@ -667,7 +673,7 @@ GameObject:
   - component: {fileID: 1411425949}
   m_Layer: 0
   m_Name: Monster1
-  m_TagString: Enemy
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -789,7 +795,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  monsterBasicAttackDamage: 0
   basicAttackDelay: 1
   FoxCircle: {fileID: 6394383795989398964, guid: 8b827b19a093afa48bd6f5f09b1208fe, type: 3}
 --- !u!1001 &1752874195
