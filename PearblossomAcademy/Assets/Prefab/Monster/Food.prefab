@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1902611630431589852}
   - component: {fileID: -4309512298524390237}
   - component: {fileID: 348138667156000243}
+  - component: {fileID: -3284673947225329359}
   m_Layer: 0
   m_Name: Food
   m_TagString: MonsterAttack
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a747277120f25ed44aa6a7ca2f8e136b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 125a12b5456829c46884ee8d769e004e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 23.603092, y: 16.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -136,5 +137,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a90add7c6148ac4cbdfd34505c336a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rotateSpeed: 1000
+  speed: 5
+  rotateSpeed: 350
+--- !u!95 &-3284673947225329359
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831845483828628532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a851275f61f568348b3e3d5815adad90, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
