@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayManager : MonoBehaviour
 {
-    public int playerLife;
-    //moster 체력 설정
+    //player 체력 설정
+    public int playerLife = 3;
+    //monster 체력 설정
     public int monster1HP = 300;
     public int monster2HP = 500;
     public int monster3HP = 1000;
