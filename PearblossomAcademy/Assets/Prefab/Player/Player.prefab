@@ -63,13 +63,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  playerBasicAttackDamage: 0
   basicAttackDelay: 0.5
+  attackDelay: 0
   playerBasicAttack: {fileID: 4736045913528455272, guid: 9cc526198d1d36d409379dd7ce34f166, type: 3}
   BlueDragon: {fileID: 1308930146578843560, guid: 1c4907fde3c2b2344b219cc45ff562a5, type: 3}
-  Jujak: {fileID: 0}
-  WhiteTiger: {fileID: 0}
-  Hyunmu: {fileID: 0}
+  Jujak: {fileID: 1308930146578843560, guid: 8192e047e2372a64ba77ebe42e1d7b7f, type: 3}
+  WhiteTiger: {fileID: 1308930146578843560, guid: 61512341504a63f46b32a494678690cb, type: 3}
+  Hyunmu: {fileID: 1308930146578843560, guid: 1f7c6e91d5440d342aa962eb54a0e304, type: 3}
+  isSkill: 0
+  skillIndex: 0
 --- !u!61 &3599460786180217166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2b9ed6ef5e18d4db0134d2c65ff0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueDragonCoolTime: 0
+  blueDragonDuration: 0
+  blueDragonDelay: 0
   blueDragonAttack: {fileID: 4736045913528455272, guid: 6ac46d5c12455004eb92ac53616bbe7e, type: 3}
 --- !u!1 &3761478062433988547
 GameObject:

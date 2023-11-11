@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     public GameObject Hyunmu;
 
     private GameObject myBlueDragon;
+    private GameObject myJujak;
+    private GameObject myWhiteTiger;
+    private GameObject myHyunmu;
 
     public bool isSkill;
     public int skillIndex;
@@ -45,6 +48,9 @@ public class Player : MonoBehaviour
     void AddSkills()
     {
         myBlueDragon = Instantiate(BlueDragon, transform);
+        myJujak = Instantiate(Jujak, transform);
+        myWhiteTiger = Instantiate(WhiteTiger, transform);
+        myHyunmu = Instantiate(Hyunmu, transform);
     }
 
     void Move()
@@ -72,9 +78,9 @@ public class Player : MonoBehaviour
                 switch(skillIndex)
                 {
                     case 0: myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); break;
-                    case 1: break;
-                    case 2: break;
-                    case 3: break;
+                    case 1: myJujak.GetComponent<Jujak>().GoJujak();break;
+                    case 2: myWhiteTiger.GetComponent<WhiteTiger>().GoWhiteTiger();break;
+                    case 3: myHyunmu.GetComponent<Hyunmu>().GoHyunmu();break;
                     default: break;
                 }
             }
