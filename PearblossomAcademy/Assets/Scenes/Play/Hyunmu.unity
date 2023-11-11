@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 424061054}
   - component: {fileID: 424061057}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Monster2
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -760,7 +760,8 @@ MonoBehaviour:
   monster5HP: 3000
   monsterAttack: 20
   playerBasicAttack: 20
-  player2Attack: 20
+  playerJujakAttack: 40
+  playerHyunmuAttack: 80
 --- !u!4 &1096759695
 Transform:
   m_ObjectHideFlags: 0
