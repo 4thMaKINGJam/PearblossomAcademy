@@ -13,7 +13,7 @@ public class PlayManager : MonoBehaviour
     public int monster5HP = 3000;
     public int monsterFoxCircle = 20;
 
-    public int playerBasicAttack; //player 기본 공격 데미지
+    public int playerBasicAttack = 10; //player 기본 공격 데미지
     
 
     void Start()

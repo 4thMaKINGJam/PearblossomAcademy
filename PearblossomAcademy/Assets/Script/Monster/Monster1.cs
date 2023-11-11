@@ -10,15 +10,18 @@ public class Monster1 : MonoBehaviour
     private float curDelay; 
 
     public GameObject FoxCircle; //여우구슬 prefab
+    public Sprite[] sprites;
     int dir = 1;
     int monsterHP;
     int playerBasicAttack;
 
     Rigidbody2D monster1;
+    SpriteRenderer spriteRenderer;
    
     void Awake()
     {
         monster1 = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster1HP;
         playerBasicAttack = playManager.playerBasicAttack;
@@ -30,7 +33,8 @@ public class Monster1 : MonoBehaviour
     {
         Move();
         BasicAttack();  //기본공격
-        ReloadBasicAttack();    //기본공격 재장전
+        ReloadBasicAttack(); //기본공격 재장전
+        Debug.Log("현재 monster damage: "+monsterHP);
     }
 
     void Move()
@@ -57,18 +61,28 @@ public class Monster1 : MonoBehaviour
 
     //구미호가 player의 attack 받으면 damage 받게 하기
     void OnHit(int damage){
+        Debug.Log("player의 공격 damage"+damage);
         //구미호 체력 감소
         monsterHP -= damage;
+        Debug.Log("현재 monster damage: "+monsterHP);
         
-        //구미호 sprite 변화
-        //spriteRenderer.sprite = sprites[1];
-        //Invoke("ReturnSprite",0.5);
+        //구미호 맞았을 때 표정 변화
+        spriteRenderer.sprite = sprites[1];
+        Invoke("ReturnSprite",0.5f);
         
         //구미호 사망
         if(monsterHP <=0){
-            //구미호 죽음 sprite
+            //구미호 죽음 sprite - 표정 바꾸기
+            spriteRenderer.sprite = sprites[1];
+            Time.timeScale = 0;
+
+            //게임 종료 씬으로 연결
         }
 
+    }
+
+    void ReturnSprite(){
+        spriteRenderer.sprite = sprites[0];
     }
 
 
