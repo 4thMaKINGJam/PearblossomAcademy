@@ -17,18 +17,30 @@ public class Player : MonoBehaviour
     public GameObject WhiteTiger;
     public GameObject Hyunmu;
 
+    private GameObject myBlueDragon;
+
+    public bool isSkill;
+    public int skillIndex;
+
     Rigidbody2D player;
 
     void Awake()
     {
         player = GetComponent<Rigidbody2D>();   
+        isSkill = false;
+        AddSkills();
     }
 
     void FixedUpdate()
     {
         Move();
-        BasicAttack();  //기본공격
-        ReloadBasicAttack();    //기본공격 재장전
+        Attack();  //공격
+        ReloadAttack();    //공격 재장전
+    }
+
+    void AddSkills()
+    {
+        myBlueDragon = Instantiate(BlueDragon, transform);
     }
 
     void Move()
@@ -42,7 +54,7 @@ public class Player : MonoBehaviour
         transform.position = curPos + movePos;
     }
 
-    void BasicAttack()
+    void Attack()
     {
         if (curDelay < basicAttackDelay)
         {
@@ -51,16 +63,31 @@ public class Player : MonoBehaviour
 
         if (Input.GetButton("BasicAttack"))
         {
-            Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
-            GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
-            Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
-            rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+            if(isSkill) //필살기 사용중이라면??
+            {
+                switch(skillIndex)
+                {
+                    case 0: myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); break;
+                    case 1: break;
+                    case 2: break;
+                    case 3: break;
+                    default: break;
+                }
+            }
+            else
+            {
+                Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
+                GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
+                Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
+                rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+            }
+            
         }
 
         curDelay = 0;
     }
 
-    void ReloadBasicAttack()
+    void ReloadAttack()
     {
         curDelay += Time.deltaTime;
     }
