@@ -5,7 +5,16 @@ using UnityEngine;
 public class PlayManager : MonoBehaviour
 {
     public int playerLife;
-    public int monsterHP;
+    //moster 체력 설정
+    public int monster1HP = 300;
+    public int monster2HP = 500;
+    public int monster3HP = 1000;
+    public int monster4HP = 1500;
+    public int monster5HP = 3000;
+    public int monsterFoxCircle = 20;
+
+    public int playerBasicAttack = 10; //player 기본 공격 데미지
+    
 
     void Start()
     {
