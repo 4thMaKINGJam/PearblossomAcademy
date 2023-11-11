@@ -21,6 +21,8 @@ public class Monster4 : MonoBehaviour
     public GameObject rockFragmentPrefab; // 도깨비불 조각 프리팹
     public int numberOfFragments = 7; // 생성할 조각의 수
     public float explosionForce = 3f; // 발산 힘의 크기
+
+    private bool isExplode;
    
     void Awake()
     {
@@ -73,9 +75,10 @@ public class Monster4 : MonoBehaviour
         Invoke("ReturnSprite",0.5f);
         
         //귀수산 사망
-        if(monsterHP <=0){
+        if(monsterHP <=0 && !isExplode){
             //귀수산 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
+            isExplode = true;
             DeathExplosion();
             //Time.timeScale = 0;
 
@@ -93,7 +96,7 @@ public class Monster4 : MonoBehaviour
     //귀수산 돌덩이 공격 - 유도총알X
     void BasicAttack()
     {
-        if (curDelay < basicAttackDelay)
+        if (curDelay < basicAttackDelay || isExplode)
         {
             return;
         }
@@ -113,6 +116,8 @@ public class Monster4 : MonoBehaviour
 
     void DeathExplosion()
     {
+        
+
         float angleStep = 360f / numberOfFragments; // 각 조각의 각도 간격
         for (int i = 0; i < numberOfFragments; i++)
         {
@@ -120,19 +125,20 @@ public class Monster4 : MonoBehaviour
             float angle = i * angleStep;
             Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
 
-            // 도깨비불 조각 생성 및 방향 설정
+            // 돌 조각 생성 및 방향 설정
             GameObject fragment = Instantiate(rockFragmentPrefab, transform.position, Quaternion.identity);
             Rigidbody2D fragmentRigid = fragment.GetComponent<Rigidbody2D>();
-            fragmentRigid.AddForce(direction * explosionForce, ForceMode2D.Impulse);
+            //fragmentRigid.AddForce(direction * explosionForce, ForceMode2D.Impulse);
+            fragmentRigid.AddForce(Vector2.left * 100, ForceMode2D.Impulse);
         }
 
-        StartCoroutine(Delay());
+        StartCoroutine(Delay(5f));
     }
 
 
-    IEnumerator Delay()
+    IEnumerator Delay(float time)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(time);
         Time.timeScale = 0;
     }
 }
