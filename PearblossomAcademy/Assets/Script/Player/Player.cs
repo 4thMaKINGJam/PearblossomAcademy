@@ -22,11 +22,14 @@ public class Player : MonoBehaviour
     public bool isSkill;
     public int skillIndex;
 
+    private PlayManager myPlayManager;
+
     Rigidbody2D player;
 
     void Awake()
     {
-        player = GetComponent<Rigidbody2D>();   
+        player = GetComponent<Rigidbody2D>();  
+        myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         isSkill = false;
         AddSkills();
     }
@@ -90,5 +93,14 @@ public class Player : MonoBehaviour
     void ReloadAttack()
     {
         curDelay += Time.deltaTime;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Monster1Attack")
+        {
+            myPlayManager.playerLife--;
+            Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+        }
     }
 }
