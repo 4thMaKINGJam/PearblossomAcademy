@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // public static GameManager instance;
     public bool[] usableSkill = new bool[4];
     public bool isGameover = false;
+    public int sceneCount;
 
     public int stage_count;
 
@@ -23,28 +23,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale=1;
         stage_count = 2;
-        // // Find the GameOverImage GameObject as a child of the Canvas
-        // //객체로 선언
-        // gameImage = new GameObject[2];
-        // blackScreen = new GameObject[1];
-        // gameImage[0] = transform.Find("GameOverImage").gameObject;
-        // gameImage[1] = transform.Find("GameClearImage").gameObject;
-        // blackScreen[0] = transform.Find("BlackScreen").gameObject;
 
-
-        // if (instance == null){
-        //     instance = this;
-        // }
-        // else{
-        //     Destroy(gameObject);
-        //     return;
-        // }
-        // gameImage[0].SetActive(false);
-        // gameImage[1].SetActive(false);
-
-        // blackScreen[0].SetActive(false);
-
-        // DontDestroyOnLoad(gameObject);
     }
 
 
@@ -54,8 +33,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         isGameover = true;
 
-        blackScreen[0].gameObject.SetActive(true);
-        gameImage[0].gameObject.SetActive(true);
+        blackScreen[0].SetActive(true);
+        gameImage[0].SetActive(true);
 
         Button gotoMenu2 = GameObject.Find("BackToMenuBtn_o").GetComponent<Button>();
         Button retry = GameObject.Find("retry").GetComponent<Button>();
@@ -78,9 +57,9 @@ public class GameManager : MonoBehaviour
         isGameover = true;
 
         //BlackScreen 활성화
-        blackScreen[0].gameObject.SetActive(true);
+        blackScreen[0].SetActive(true);
         //GameOverImage 활성화
-        gameImage[1].gameObject.SetActive(true);
+        gameImage[1].SetActive(true);
 
         Button gotoMenu = GameObject.Find("BackToMenuBtn_c").GetComponent<Button>();
         Button gotoNextStage = GameObject.Find("nextStage").GetComponent<Button>();
@@ -93,7 +72,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
     void nextStage() {
-        Debug.Log("next_stage");
+        sceneCount = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneCount+1);
     }
     void reTry() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

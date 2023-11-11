@@ -302,11 +302,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 1}
   m_EdgeRadius: 0
---- !u!1 &95726535 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956797553161588245, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 5568853868109447503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166504653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5568853868253931906, guid: 01717d58a965842cc870137ff858ed20, type: 3}
@@ -326,15 +321,15 @@ PrefabInstance:
     - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: UltimateCircle.Array.data[0]
       value: 
-      objectReference: {fileID: 1746982566}
+      objectReference: {fileID: 0}
     - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: UltimateCircle.Array.data[1]
       value: 
-      objectReference: {fileID: 712684059}
+      objectReference: {fileID: 0}
     - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: UltimateCircle.Array.data[2]
       value: 
-      objectReference: {fileID: 95726535}
+      objectReference: {fileID: 0}
     - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: LifeBlossom.Array.size
       value: 5
@@ -498,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usableSkill: 00000000
   isGameover: 0
+  sceneCount: 0
   stage_count: 0
   Stages: []
   gameImage:
@@ -588,11 +584,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 1}
   m_EdgeRadius: 0
---- !u!1 &712684059 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956797552201470106, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 5568853868109447503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &714469895
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +825,10 @@ MonoBehaviour:
   playerBasicAttack: 20
   playerJujakAttack: 40
   playerHyunmuAttack: 80
+  UltimateCircles:
+  - {fileID: 5568853868109447505}
+  - {fileID: 5568853868109447504}
+  - {fileID: 5568853868109447506}
 --- !u!4 &940022216
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,11 +1394,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1746982566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956797553300765864, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 5568853868109447503}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1789875554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,6 +1870,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8734716528351529139, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_Name
+      value: ult_circles
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956797553780285070, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5568853869660797950, guid: 01717d58a965842cc870137ff858ed20, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1930,6 +1948,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+--- !u!1 &5568853868109447504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4165912275558283057, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 5568853868109447503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5568853868109447505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2500613775843015671, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 5568853868109447503}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5568853868109447506 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4929294077561013534, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 5568853868109447503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8704698072347974168
 PrefabInstance:
   m_ObjectHideFlags: 0

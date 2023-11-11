@@ -47,3 +47,7 @@ MonoBehaviour:
   jujakDuration: 10
   jujakDelay: 0.7
   jujakAttack: {fileID: 4736045913528455272, guid: 46919ed006d8df948b530b158c33e48b, type: 3}
+  UltimateCircle:
+  - {fileID: 380450013920694271, guid: 7a572543464904ad98838c405b57ff81, type: 3}
+  - {fileID: 5385930214751238919, guid: 1e658a6116adb422da0f6358f56df837, type: 3}
+  - {fileID: 4501054407918439418, guid: b8a4eb17c166f4fa09fb412f2463d99d, type: 3}

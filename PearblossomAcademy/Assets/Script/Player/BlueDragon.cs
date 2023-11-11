@@ -9,7 +9,6 @@ public class BlueDragon : MonoBehaviour
     private float curTime; 
 
     public GameObject blueDragonAttack; //청룡공격 prefab
-    public GameObject[] UltimateCircle;
     private Player myPlayer;
 
     void Awake()
@@ -43,7 +42,7 @@ public class BlueDragon : MonoBehaviour
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 0; //청룡 인덱스
             myPlayer.attackDelay = blueDragonDelay;
-            Destroy(UltimateCircle[3-myPlayer.myPlayManager.skillCount]);
+            myPlayer.myPlayManager.UltSkillActivate();
             myPlayer.myPlayManager.skillCount--;
         }
     }

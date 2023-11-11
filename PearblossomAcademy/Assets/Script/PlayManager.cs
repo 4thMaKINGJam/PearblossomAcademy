@@ -19,6 +19,8 @@ public class PlayManager : MonoBehaviour
     public int playerJujakAttack = 40;
     public int playerHyunmuAttack = 80;
 
+    public GameObject[] UltimateCircles;
+
     void Start()
     {
         bool[] usableSkill = new bool[] {true, false, false, false};
@@ -33,6 +35,11 @@ public class PlayManager : MonoBehaviour
     public void GameClear()
     {
         Time.timeScale = 0;
+    }
+
+    public void UltSkillActivate()
+    {
+        Destroy(UltimateCircles[3-skillCount]);
     }
 
 }
