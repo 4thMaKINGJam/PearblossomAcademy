@@ -504,7 +504,7 @@ MonoBehaviour:
   - {fileID: 474629669}
   - {fileID: 1595544832}
   blackScreen:
-  - {fileID: 714469897}
+  - {fileID: 714469895}
 --- !u!4 &518008603
 Transform:
   m_ObjectHideFlags: 0
