@@ -247,9 +247,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4736045913528455272, guid: 9cc526198d1d36d409379dd7ce34f166, type: 3}
     - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: basicAttackCoolTime
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e9b18f0f4149436a9226d71dcef0590, type: 3}
+    - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: d1495001b67f1479eb6dcfd8d8bb418b, type: 3}
     - target: {fileID: 3599460786180217200, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
