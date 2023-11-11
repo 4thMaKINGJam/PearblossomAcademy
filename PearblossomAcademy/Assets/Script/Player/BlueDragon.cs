@@ -22,7 +22,7 @@ public class BlueDragon : MonoBehaviour
     void FixedUpdate()
     {
         ActivateBlueDragon();
-        if(myPlayer.isSkill)
+        if(myPlayer.isSkill && myPlayer.skillIndex==0)
         {
             Countdown();
         }

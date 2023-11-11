@@ -10,6 +10,8 @@ public class WhiteTiger : MonoBehaviour
     public GameObject WhiteTigerShield; //백호공격 prefab
     private Player myPlayer;
 
+    private GameObject myWhiteTigerShield;
+
     void Awake()
     {
         myPlayer = GameObject.Find("Player").GetComponent<Player>();
@@ -20,7 +22,7 @@ public class WhiteTiger : MonoBehaviour
     void FixedUpdate()
     {
         ActivateWhiteTiger();
-        if(myPlayer.isSkill)
+        if(myPlayer.isSkill && myPlayer.skillIndex==2)
         {
             Countdown();
         }
@@ -32,12 +34,14 @@ public class WhiteTiger : MonoBehaviour
         {
             myPlayer.isSkill = false;
             curTime = 0;
+            StopWhiteTiger();
         }
 
         if (Input.GetButton("WhiteTiger") && !myPlayer.isSkill)
         {
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 2; //백호 인덱스
+            GoWhiteTiger();
         }
     }
 
@@ -46,9 +50,14 @@ public class WhiteTiger : MonoBehaviour
         curTime += Time.deltaTime;
     }
 
-    public void GoWhiteTiger()
+    void GoWhiteTiger()
     {
         Vector3 shieldPos = myPlayer.transform.position;
-        GameObject myWhiteTigerShield = Instantiate(WhiteTigerShield, shieldPos, transform.rotation, myPlayer.transform);
+        myWhiteTigerShield = Instantiate(WhiteTigerShield, shieldPos, transform.rotation, myPlayer.transform);
+    }
+
+    void StopWhiteTiger()
+    {
+        Destroy(myWhiteTigerShield);
     }
 }

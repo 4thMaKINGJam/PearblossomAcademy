@@ -79,22 +79,27 @@ public class Player : MonoBehaviour
                 {
                     case 0: myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); break;
                     case 1: myJujak.GetComponent<Jujak>().GoJujak();break;
-                    case 2: myWhiteTiger.GetComponent<WhiteTiger>().GoWhiteTiger();break;
-                    case 3: myHyunmu.GetComponent<Hyunmu>().GoHyunmu();break;
+                    case 2: Shoot(); break;
+                    case 3: Shoot(); break;
                     default: break;
                 }
             }
             else
             {
-                Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
-                GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
-                Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
-                rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+                Shoot();
             }
             
         }
 
         curDelay = 0;
+    }
+
+    void Shoot()
+    {
+        Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
+        GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
+        Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
+        rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
     }
 
     void ReloadAttack()

@@ -22,7 +22,7 @@ public class Jujak : MonoBehaviour
     void FixedUpdate()
     {
         ActivateJujak();
-        if(myPlayer.isSkill)
+        if(myPlayer.isSkill && myPlayer.skillIndex==1)
         {
             Countdown();
         }
