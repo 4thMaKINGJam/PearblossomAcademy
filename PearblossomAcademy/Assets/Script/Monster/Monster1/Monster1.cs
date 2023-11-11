@@ -72,10 +72,13 @@ public class Monster1 : MonoBehaviour
         //구미호 사망
         if(monsterHP <=0){
             //구미호 죽음 sprite - 표정 바꾸기
+
             spriteRenderer.sprite = sprites[1];
             Time.timeScale = 0;
 
+            GameManager.instance.GameClear();
             //게임 종료 씬으로 연결
+
         }
 
     }
