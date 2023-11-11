@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c2b9ed6ef5e18d4db0134d2c65ff0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blueDragonCoolTime: 10
+  blueDragonAttack: {fileID: 4736045913528455272, guid: 6ac46d5c12455004eb92ac53616bbe7e, type: 3}
