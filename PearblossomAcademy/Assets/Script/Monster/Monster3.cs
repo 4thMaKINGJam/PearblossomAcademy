@@ -7,6 +7,8 @@ public class Monster3 : MonoBehaviour
     //공격 속도
     public float speed = 0; //이동속도 = 0 정도로 세팅
     public float basicAttackDelay = 4; //공격들 간 간격 조절 - 4초 간격
+    private float basicAttackTimer = 3.5f; 
+
     private float curDelay = 2.0f; 
     public float foodAttackDelay = 0.7f; //0.2초 간격으로 공격- 5초 간
     public float trimAttackDelay = 1; //1초 간격 - 5번 발사
@@ -42,19 +44,26 @@ public class Monster3 : MonoBehaviour
     //4초 간격으로 하게 변경 
     void FixedUpdate()
     {
-        int i = Random.Range(0,2);
-        switch(i){
-            case 0://음식 공격
-                FoodAttack(); //음식공격
-                ReloadFoodAttack(); //음식 재장전
-                break;
-            case 1: //트림 공격
-                TrimAttack();
-                ReloadTrimAttack();
-                break;
-            default: 
-                break;
+        basicAttackTimer += Time.deltaTime;
+        if(basicAttackTimer >= basicAttackDelay){
+            int i = Random.Range(0,2);
+            switch(i){
+                case 0://음식 공격
+                    Debug.Log("음식 공격");
+                    FoodAttack(); //음식공격
+                    ReloadFoodAttack(); //음식 재장전
+                    break;
+                case 1: //트림 공격
+                    Debug.Log("트림 공격");
+                    TrimAttack();
+                    ReloadTrimAttack();
+                    break;
+                default: 
+                    break;
+            }
+            basicAttackTimer = 0;
         }
+        
         
         Debug.Log("현재 monster damage: "+monsterHP);
     }
