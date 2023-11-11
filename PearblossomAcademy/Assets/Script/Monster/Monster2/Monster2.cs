@@ -13,6 +13,8 @@ public class Monster2 : MonoBehaviour
     int monsterHP;
     int playerBasicAttack, jujakAttack;
 
+    GameManager gameManager;
+
     private float curDelay = 2.0f; 
 
     Rigidbody2D monster;
@@ -25,6 +27,7 @@ public class Monster2 : MonoBehaviour
    
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
@@ -76,6 +79,8 @@ public class Monster2 : MonoBehaviour
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
             Time.timeScale = 0;
+
+            gameManager.GameClear();
 
             //게임 종료 씬으로 연결
         }

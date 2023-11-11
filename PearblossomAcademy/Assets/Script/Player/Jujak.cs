@@ -42,6 +42,7 @@ public class Jujak : MonoBehaviour
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 1; //주작 인덱스
             myPlayer.attackDelay = jujakDelay;
+            myPlayer.myPlayManager.UltSkillActivate();
             myPlayer.myPlayManager.skillCount--;
         }
     }
