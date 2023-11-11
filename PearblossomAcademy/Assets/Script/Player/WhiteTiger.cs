@@ -37,11 +37,12 @@ public class WhiteTiger : MonoBehaviour
             StopWhiteTiger();
         }
 
-        if (Input.GetButton("WhiteTiger") && !myPlayer.isSkill)
+        if (Input.GetButton("WhiteTiger") && !myPlayer.isSkill && myPlayer.myPlayManager.skillCount>0)
         {
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 2; //백호 인덱스
             GoWhiteTiger();
+            myPlayer.myPlayManager.skillCount--;
         }
     }
 

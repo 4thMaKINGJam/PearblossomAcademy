@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public bool isSkill;
     public int skillIndex;
 
-    private PlayManager myPlayManager;
+    public PlayManager myPlayManager;
 
     Rigidbody2D player;
 
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();  //공격
         ReloadAttack();  //공격 재장전
+        Debug.Log(myPlayManager.skillCount);
     }
 
     void AddSkills()
@@ -111,9 +112,12 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "MonsterAttack")
         {
-            myPlayManager.playerLife--;
-            Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
-            StartCoroutine(Flicker());
+            if(!(isSkill && skillIndex==2)) //백호
+            {
+                myPlayManager.playerLife--;
+                //Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+                StartCoroutine(Flicker());
+            } 
         }
 
         if(myPlayManager.playerLife<=0)
@@ -147,5 +151,14 @@ public class Player : MonoBehaviour
         }
 
         this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,1);
+    }
+
+    public void HyunmuDamage()
+    {
+        myPlayManager.monster1HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster2HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster3HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster4HP -= myPlayManager.playerHyunmuAttack;
+        myPlayManager.monster5HP -= myPlayManager.playerHyunmuAttack;
     }
 }

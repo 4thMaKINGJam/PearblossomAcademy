@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Hyunmu : MonoBehaviour
 {
-    public float HyunmuDuration; //백호공격 지속 시간
+    public float HyunmuDuration; //현무공격 지속 시간
     private float curTime; 
 
-    public GameObject HyunmuAttack; //주작공격 prefab
+    public GameObject HyunmuAttack; //현무공격 prefab
     private Player myPlayer;
 
     void Awake()
@@ -35,11 +35,12 @@ public class Hyunmu : MonoBehaviour
             curTime = 0;
         }
 
-        if (Input.GetButton("Hyunmu") && !myPlayer.isSkill)
+        if (Input.GetButton("Hyunmu") && !myPlayer.isSkill && myPlayer.myPlayManager.skillCount>0)
         {
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 3; //현무 인덱스
             GoHyunmu();
+            myPlayer.myPlayManager.skillCount--;
         }
     }
 
@@ -54,5 +55,7 @@ public class Hyunmu : MonoBehaviour
         GameObject myHyunmuAttack = Instantiate(HyunmuAttack, attackPos, transform.rotation);
         Rigidbody2D rigid = myHyunmuAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+
+        myPlayer.HyunmuDamage();
     }
 }
