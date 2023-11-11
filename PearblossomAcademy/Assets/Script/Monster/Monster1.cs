@@ -4,15 +4,68 @@ using UnityEngine;
 
 public class Monster1 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float speed; //이동속도 = 6 정도로 세팅
+    public int playerBasicAttackDamage; //기본공격의 데미지량
+
+    public float basicAttackDelay; //기본공격 간격 조절
+    private float curDelay; 
+
+    public GameObject playerBasicAttack; //기본공격 prefab
+    int dir = 1;
+
+    Rigidbody2D monster1;
+   
+    void Awake()
     {
+        monster1 = GetComponent<Rigidbody2D>();
         
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
+    {
+        Move();
+        BasicAttack();  //기본공격
+        ReloadBasicAttack();    //기본공격 재장전
+    }
+
+    void Move()
     {
         
+        
+        Vector3 curPos = transform.position;
+        Vector3 movePos = new Vector3(0, dir, 0) * speed * Time.deltaTime;
+
+        transform.position = curPos + movePos;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision){
+        if(collision.gameObject.tag == "Border")
+        {
+            dir *= (-1);
+        }
+
+        }
+
+    void BasicAttack()
+    {
+        if (curDelay < basicAttackDelay)
+        {
+            return;
+        }
+
+        Vector3 attackPos = transform.position + new Vector3(0, 0, 0);
+        GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
+        Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
+        rigid.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+        
+        curDelay = 0;
+    }
+
+    void ReloadBasicAttack()
+    {
+        curDelay += Time.deltaTime;
     }
 }
+
+
