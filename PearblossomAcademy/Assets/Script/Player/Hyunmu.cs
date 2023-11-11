@@ -40,6 +40,7 @@ public class Hyunmu : MonoBehaviour
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 3; //현무 인덱스
             GoHyunmu();
+            myPlayer.myPlayManager.UltSkillActivate();
             myPlayer.myPlayManager.skillCount--;
         }
     }

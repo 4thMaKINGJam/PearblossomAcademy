@@ -16,6 +16,8 @@ public class Monster3 : MonoBehaviour
     private bool isFoodAttacking = false;
     private bool isTrimAttacking = false;
 
+    GameManager gameManager;
+
 
     //공격 prefab
     public GameObject Food, Trim;//음식, 트림 prefab
@@ -36,6 +38,7 @@ public class Monster3 : MonoBehaviour
    
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
@@ -128,6 +131,7 @@ public class Monster3 : MonoBehaviour
             Time.timeScale = 0;
 
             //게임 종료 씬으로 연결
+            gameManager.GameClear();
         }
 
     }
