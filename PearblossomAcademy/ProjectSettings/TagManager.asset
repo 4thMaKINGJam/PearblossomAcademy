@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Border
   - PlayerAttack
+  - MonsterAttack
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: middle
+    uniqueID: 1684896697
+    locked: 0
+  - name: front
+    uniqueID: 1104210133
     locked: 0
