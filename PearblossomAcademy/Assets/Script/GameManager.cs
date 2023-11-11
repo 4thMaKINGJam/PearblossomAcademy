@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public bool[] usableSkill = new bool[4];
     public bool isGameover = false;
-    public int GameClear=0;
 
     //씬 관리
     public GameObject[] Stages;
