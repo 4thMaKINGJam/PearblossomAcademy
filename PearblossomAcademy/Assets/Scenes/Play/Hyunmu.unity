@@ -601,6 +601,9 @@ MonoBehaviour:
   basicAttackDelay: 4
   MonsterFire: {fileID: 1301389290706873826, guid: 1063f67b0e34e0c4a9e6d61b3b429874, type: 3}
   sprites: []
+  fireFragmentPrefab: {fileID: 4315721614170807867, guid: 4dae35062b4b4b14f9cf0d433a4570d6, type: 3}
+  numberOfFragments: 7
+  explosionForce: 5
 --- !u!1 &786044132
 GameObject:
   m_ObjectHideFlags: 0

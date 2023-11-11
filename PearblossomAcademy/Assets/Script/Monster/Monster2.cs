@@ -18,6 +18,10 @@ public class Monster2 : MonoBehaviour
     Rigidbody2D monster;
     SpriteRenderer spriteRenderer;
     Rigidbody2D fireRigid;
+
+    public GameObject fireFragmentPrefab; // 도깨비불 조각 프리팹
+    public int numberOfFragments = 7; // 생성할 조각의 수
+    public float explosionForce = 3f; // 발산 힘의 크기
    
     void Awake()
     {
@@ -119,16 +123,21 @@ public class Monster2 : MonoBehaviour
 
 
     void FireWork(){//1.5초 후 발산
-        foreach (Rigidbody2D projectile in firedProjectiles)
+        float angleStep = 360f / numberOfFragments; // 각 조각의 각도 간격
+        for (int i = 0; i < numberOfFragments; i++)
         {
-            // 랜덤한 방향으로 힘을 가함
-            float randomX = Random.Range(-1f, 1f);
-            float randomY = Random.Range(-1f, 1f);
-            Vector2 randomDirection = new Vector2(randomX, randomY).normalized;
-            projectile.AddForce(randomDirection * explosionForce, ForceMode2D.Impulse);
+            // 각도 계산
+            float angle = i * angleStep;
+            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+            // 도깨비불 조각 생성 및 방향 설정
+            GameObject fragment = Instantiate(fireFragmentPrefab, fireRigid.position, Quaternion.identity);
+            Rigidbody2D fragmentRigid = fragment.GetComponent<Rigidbody2D>();
+            fragmentRigid.AddForce(direction * explosionForce, ForceMode2D.Impulse);
         }
 
-        firedProjectiles.Clear(); // 발사체 리스트를 비움
+        // 원본 발사체는 제거
+        Destroy(fireRigid.gameObject);
 
     }
 
