@@ -7,9 +7,4 @@ public class PlayManager : MonoBehaviour
     public int playerLife;
     public int monsterHP;
 
-    void Start()
-    {
-        
-    }
-
 }
