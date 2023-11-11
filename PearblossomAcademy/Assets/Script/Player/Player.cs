@@ -98,10 +98,38 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Monster1Attack")
+        if(collision.gameObject.tag == "MonsterAttack")
         {
             myPlayManager.playerLife--;
             Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+            StartCoroutine(Flicker());
         }
+    }
+
+    IEnumerator Flicker()
+    {
+        int count = 0;
+
+        while (count < 2)
+        {
+            float fadeCnt = 0;
+            while (fadeCnt < 1.0f)
+            {
+                fadeCnt += 0.1f;
+                yield return new WaitForSeconds(0.01f);
+                this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,fadeCnt);
+            }
+
+            while (fadeCnt > 0f)
+            {
+                fadeCnt -= 0.1f;
+                yield return new WaitForSeconds(0.01f);
+                this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,fadeCnt);
+            }
+
+            count++;
+        }
+
+        this.GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,1);
     }
 }
