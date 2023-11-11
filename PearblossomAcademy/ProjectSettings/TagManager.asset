@@ -7,7 +7,7 @@ TagManager:
   - Border
   - PlayerBasicAttack
   - Monster
-  - Monster1Attack
+  - MonsterAttack
   layers:
   - Default
   - TransparentFX
