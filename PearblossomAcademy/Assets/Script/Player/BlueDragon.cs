@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlueDragon : MonoBehaviour
 {
     public float blueDragonDuration; //청룡공격 지속 시간
+    public float blueDragonDelay; //청룡공격 공격 간격
     private float curTime; 
     private bool isBlueDragon;   //청룡스킬 쓰는 중!!
 
@@ -29,11 +30,12 @@ public class BlueDragon : MonoBehaviour
 
     void ActivateBlueDragon()
     {
-        if(curTime>blueDragonDuration)
+        if(curTime > blueDragonDuration)
         {
             //isActivate = false;
             myPlayer.isSkill = false;
             curTime = 0;
+            myPlayer.attackDelay = myPlayer.basicAttackDelay;
         }
 
         if (Input.GetButton("BlueDragon"))
@@ -41,6 +43,7 @@ public class BlueDragon : MonoBehaviour
             //isActivate = true;
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 0; //청룡 인덱스
+            myPlayer.attackDelay = blueDragonDelay;
         }
     }
 

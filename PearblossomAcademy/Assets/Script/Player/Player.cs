@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float speed; //이동속도
-    public int playerBasicAttackDamage; //기본공격의 데미지량
 
-    public float basicAttackDelay; //기본공격 간격 조절
+    public float basicAttackDelay;
+    public float attackDelay; //기본공격 간격 조절
     private float curDelay; 
 
     public GameObject playerBasicAttack; //기본공격 prefab
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
         player = GetComponent<Rigidbody2D>();  
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         isSkill = false;
+        attackDelay = basicAttackDelay;
         AddSkills();
     }
 
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Attack();  //공격
-        ReloadAttack();    //공격 재장전
+        ReloadAttack();  //공격 재장전
     }
 
     void AddSkills()
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
 
     void Attack()
     {
-        if (curDelay < basicAttackDelay)
+        if (curDelay < attackDelay)
         {
             return;
         }

@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blueDragonDuration: 10
+  blueDragonDelay: 0.7
   blueDragonAttack: {fileID: 4736045913528455272, guid: 6ac46d5c12455004eb92ac53616bbe7e, type: 3}
