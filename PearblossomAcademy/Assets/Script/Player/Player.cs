@@ -93,10 +93,12 @@ public class Player : MonoBehaviour
             {
                 Shoot();
             }
+
+            curDelay = 0;
             
         }
 
-        curDelay = 0;
+        
     }
 
     void Shoot()
