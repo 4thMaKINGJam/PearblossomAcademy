@@ -42,6 +42,7 @@ public class BlueDragon : MonoBehaviour
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 0; //청룡 인덱스
             myPlayer.attackDelay = blueDragonDelay;
+            myPlayer.myPlayManager.UltSkillActivate();
             myPlayer.myPlayManager.skillCount--;
         }
     }
@@ -49,6 +50,7 @@ public class BlueDragon : MonoBehaviour
     void Countdown()
     {
         curTime += Time.deltaTime;
+        Debug.Log(curTime);
     }
 
     public void GoBlueDragon()

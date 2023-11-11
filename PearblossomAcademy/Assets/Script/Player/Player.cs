@@ -10,12 +10,14 @@ public class Player : MonoBehaviour
     public float basicAttackDelay;
     public float attackDelay; //기본공격 간격 조절
     private float curDelay; 
+    private int cnt;
 
     public GameObject playerBasicAttack; //기본공격 prefab
     public GameObject BlueDragon;
     public GameObject Jujak;
     public GameObject WhiteTiger;
     public GameObject Hyunmu;
+    public GameObject[] LifeBlossom;
 
     private GameObject myBlueDragon;
     private GameObject myJujak;
@@ -26,6 +28,7 @@ public class Player : MonoBehaviour
     public int skillIndex;
 
     public PlayManager myPlayManager;
+    public GameManager myGameManager;
 
     Rigidbody2D player;
     SpriteRenderer spriteRenderer;
@@ -36,8 +39,10 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        cnt = 0;
         player = GetComponent<Rigidbody2D>();  
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
+        myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         isSkill = false;
         attackDelay = basicAttackDelay;
         spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -124,7 +129,8 @@ public class Player : MonoBehaviour
             if(!(isSkill && skillIndex==2)) //백호
             {
                 myPlayManager.playerLife--;
-                //Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+                Destroy(LifeBlossom[cnt]);
+                cnt++;
                 StartCoroutine(Flicker());
             } 
         }
@@ -132,6 +138,8 @@ public class Player : MonoBehaviour
         if(myPlayManager.playerLife<=0)
         {
             myPlayManager.GameOver();
+            myGameManager.GameOver();
+
         }
     }
 

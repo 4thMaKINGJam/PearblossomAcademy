@@ -7,71 +7,109 @@ using UnityEngine.SceneManagement;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public GameObject main_intro;
-    public GameObject main_bdrgn;
-    public GameObject main_jj;
-    public GameObject main_whitetg;
-    public GameObject main_hm;
-    public GameObject main_ydrgn;
+    public GameObject[] main_book;
+    public GameObject activeObject;
+    public GameObject handRight;
+    public GameObject handLeft;
+    public int currentIndex = 0;
+    private int unlock_stage;
+
+    GameManager gameManager;
+
+    void Awake(){
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
 
     void Start()
     {
-        ActivateObject(main_intro);
+        unlock_stage = gameManager.stage_count;
+        Debug.Log(unlock_stage);
 
-        Button button1 = GameObject.Find("btn_intro").GetComponent<Button>();
-        Button button2 = GameObject.Find("btn_bd").GetComponent<Button>();
-        Button button3 = GameObject.Find("btn_jj").GetComponent<Button>();
-        Button button4 = GameObject.Find("btn_wt").GetComponent<Button>();
-        Button button5 = GameObject.Find("btn_hm").GetComponent<Button>();
-        Button button6 = GameObject.Find("btn_yd").GetComponent<Button>();
+        for(int i=1; i<6; i++)
+        {
+            main_book[i].SetActive(false);
+        }
+        activeObject.SetActive(true);
+        handRight.SetActive(false);
+        handLeft.SetActive(false);
+
+        Button buttonRight = GameObject.Find("btn_right").GetComponent<Button>();
+        Button buttonLeft = GameObject.Find("btn_left").GetComponent<Button>();
+
         Button button_start = GameObject.Find("stage_start").GetComponent<Button>();
 
-        button2.onClick.AddListener(() => ActivateObject(main_bdrgn));
-        button3.onClick.AddListener(() => ActivateObject(main_jj));
-        button4.onClick.AddListener(() => ActivateObject(main_whitetg));
-        button5.onClick.AddListener(() => ActivateObject(main_hm));
-        button6.onClick.AddListener(() => ActivateObject(main_ydrgn));
-        button1.onClick.AddListener(() => ActivateObject(main_intro));
+        buttonRight.onClick.AddListener(() => FlipRight());
+        buttonLeft.onClick.AddListener(() => FlipLeft());
+
         button_start.onClick.AddListener(() => ActivateScene());
     }
 
 
     void ActivateObject(GameObject targetObject)
     {
-        main_intro.SetActive(false);
-        main_bdrgn.SetActive(false);
-        main_jj.SetActive(false);
-        main_whitetg.SetActive(false);
-        main_hm.SetActive(false);
-        main_ydrgn.SetActive(false);
-        targetObject.SetActive(true);
+        foreach (GameObject obj in main_book)
+        {
+            obj.SetActive(obj == targetObject);
+        }
+    }
+
+    void FlipRight()
+    {
+        currentIndex = (currentIndex + 1) % unlock_stage;
+
+        handRight.SetActive(true);
+        Invoke("HandActivate",0.2f);
+
+        if(currentIndex <= unlock_stage){
+            ActivateObject(main_book[currentIndex]);
+            activeObject = main_book[currentIndex];
+        }
+        
+    }
+
+    void FlipLeft()
+    {
+        currentIndex = (currentIndex - 1 + unlock_stage) % unlock_stage;
+        handLeft.SetActive(true);
+        Invoke("HandActivate",0.2f);
+        if(currentIndex <= unlock_stage){
+            ActivateObject(main_book[currentIndex]);
+            activeObject = main_book[currentIndex];
+        }
+    }
+    void HandActivate()
+    {
+        handRight.SetActive(false);
+        handLeft.SetActive(false);
     }
     void ActivateScene()
+{
+    if (activeObject == main_book[0])  // main_intro와 비교
     {
-        if(main_intro.activeSelf)
-        {
-            SceneManager.LoadScene("Intro");
-        }
-        else if(main_bdrgn.activeSelf)
-        {
-            SceneManager.LoadScene("BlueDragon");
-        }
-        else if(main_jj.activeSelf)
-        {
-            SceneManager.LoadScene("Jujak");
-        }
-        else if(main_whitetg.activeSelf)
-        {
-            SceneManager.LoadScene("WhiteTiger");
-        }
-        else if(main_hm.activeSelf)
-        {
-            SceneManager.LoadScene("Hyunmu");
-        }
-        else if(main_ydrgn.activeSelf)
-        {
-            SceneManager.LoadScene("YellowDragon");
-        }
+        SceneManager.LoadScene("Intro");
     }
+    else if (activeObject == main_book[1])  // main_bdrgn와 비교
+    {
+        SceneManager.LoadScene("BlueDragon");
+    }
+    else if (activeObject == main_book[2])  // main_jj와 비교
+    {
+        SceneManager.LoadScene("Jujak");
+    }
+    else if (activeObject == main_book[3])  // main_whitetg와 비교
+    {
+        SceneManager.LoadScene("WhiteTiger");
+    }
+    else if (activeObject == main_book[4])  // main_hm와 비교
+    {
+        SceneManager.LoadScene("Hyunmu");
+    }
+    else if (activeObject == main_book[5])  // main_ydrgn와 비교
+    {
+        SceneManager.LoadScene("YellowDragon");
+    }
+}
+
 }
 

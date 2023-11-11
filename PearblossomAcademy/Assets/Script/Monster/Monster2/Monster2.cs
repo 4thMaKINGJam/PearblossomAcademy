@@ -13,6 +13,8 @@ public class Monster2 : MonoBehaviour
     int monsterHP;
     int playerBasicAttack, jujakAttack;
 
+    GameManager gameManager;
+
     private float curDelay = 2.0f; 
 
     Rigidbody2D monster;
@@ -26,6 +28,7 @@ public class Monster2 : MonoBehaviour
    
     void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
@@ -78,6 +81,8 @@ public class Monster2 : MonoBehaviour
             spriteRenderer.sprite = sprites[1];
             playManager.MonsterClear(2);
             //Time.timeScale = 0;
+
+            gameManager.GameClear();
 
             //게임 종료 씬으로 연결
         }

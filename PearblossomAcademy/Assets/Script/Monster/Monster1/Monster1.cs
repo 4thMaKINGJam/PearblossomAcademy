@@ -18,12 +18,14 @@ public class Monster1 : MonoBehaviour
     Rigidbody2D monster1;
     SpriteRenderer spriteRenderer;
     PlayManager playManager;
+    GameManager gameManager;
    
     void Awake()
     {
         monster1 = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monsterHP = playManager.monster1HP;
         playerBasicAttack = playManager.playerBasicAttack;
         
@@ -76,11 +78,14 @@ public class Monster1 : MonoBehaviour
         //구미호 사망
         if(monsterHP <=0){
             //구미호 죽음 sprite - 표정 바꾸기
+
             spriteRenderer.sprite = sprites[1];
             playManager.MonsterClear(0);
             //Time.timeScale = 0;
 
+            gameManager.GameClear();
             //게임 종료 씬으로 연결
+
         }
 
     }

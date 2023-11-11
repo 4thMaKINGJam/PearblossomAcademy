@@ -25,6 +25,7 @@ public class PlayManager : MonoBehaviour
 
     private Monster5 mixedMonster;
     public bool isStartAttacking = true;
+    public GameObject[] UltimateCircles;
 
     void Awake()
     {
@@ -68,6 +69,11 @@ public class PlayManager : MonoBehaviour
     void GameClearFinal()
     {
 
+    }
+
+    public void UltSkillActivate()
+    {
+        Destroy(UltimateCircles[3-skillCount]);
     }
 
 }

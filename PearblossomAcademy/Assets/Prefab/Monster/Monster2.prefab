@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 4557371606922367204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.2711, y: 0.9849, z: -1157.431}
-  m_LocalScale: {x: 3.066, y: 2.802, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.33, y: 0.30158514, z: 0.1076321}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f9be25af46d546ec9889553feed9045, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +122,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.13403146}
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 14.89, y: 20.96}
   m_Direction: 0
 --- !u!114 &4557371606922367206
 MonoBehaviour:
@@ -141,8 +141,8 @@ MonoBehaviour:
   basicAttackDelay: 4
   MonsterFire: {fileID: 1301389290706873826, guid: 1063f67b0e34e0c4a9e6d61b3b429874, type: 3}
   sprites:
-  - {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
-  - {fileID: 21300000, guid: 748ae8b33df036b46a86e0387f1602cf, type: 3}
+  - {fileID: 21300000, guid: 2f9be25af46d546ec9889553feed9045, type: 3}
+  - {fileID: 21300000, guid: ab23d9ff8a8dd4108b896dacf628a08b, type: 3}
   fireFragmentPrefab: {fileID: 4315721614170807867, guid: 4dae35062b4b4b14f9cf0d433a4570d6, type: 3}
   numberOfFragments: 7
   explosionForce: 5
