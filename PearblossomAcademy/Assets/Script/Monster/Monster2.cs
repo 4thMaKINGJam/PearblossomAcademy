@@ -30,7 +30,7 @@ public class Monster2 : MonoBehaviour
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster2HP;
         playerBasicAttack = playManager.playerBasicAttack;
-        player2Attack = playManager.player2Attack; 
+        //player2Attack = playManager.player2Attack; 
         
     }
 

@@ -45,5 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HyunmuDuration: 10
-  HyunmuDelay: 0.7
   HyunmuAttack: {fileID: 4736045913528455272, guid: 20a49859e10f56549bad991bcd35c2b9, type: 3}

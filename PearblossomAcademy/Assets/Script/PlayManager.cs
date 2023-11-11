@@ -16,8 +16,8 @@ public class PlayManager : MonoBehaviour
 
     public int playerBasicAttack = 10; //player 기본 공격 데미지
     //임의로 설정
-    public int player2Attack = 20;
-    //attack 2~ damage 설정 필요
+    public int playerJujakAttack = 40;
+    public int playerHyunmuAttack = 80;
 
     
 

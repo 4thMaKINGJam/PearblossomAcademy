@@ -8,6 +8,8 @@ TagManager:
   - PlayerBasicAttack
   - Monster
   - MonsterAttack
+  - JujakAttack
+  - HyunmuAttack
   layers:
   - Default
   - TransparentFX
