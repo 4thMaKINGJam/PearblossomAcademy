@@ -789,9 +789,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
-  playerBasicAttackDamage: 20
+  monsterBasicAttackDamage: 0
   basicAttackDelay: 1
-  playerBasicAttack: {fileID: 6394383795989398964, guid: 8b827b19a093afa48bd6f5f09b1208fe, type: 3}
+  FoxCircle: {fileID: 6394383795989398964, guid: 8b827b19a093afa48bd6f5f09b1208fe, type: 3}
 --- !u!1001 &1752874195
 PrefabInstance:
   m_ObjectHideFlags: 0

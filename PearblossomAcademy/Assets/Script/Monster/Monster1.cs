@@ -10,7 +10,7 @@ public class Monster1 : MonoBehaviour
     public float basicAttackDelay; //기본공격 간격 조절
     private float curDelay; 
 
-    public GameObject monsterBasicAttack; //기본공격 prefab
+    public GameObject FoxCircle; //여우구슬 prefab
     int dir = 1;
 
     Rigidbody2D monster1;
@@ -61,7 +61,7 @@ public class Monster1 : MonoBehaviour
         }
 
         Vector3 attackPos = transform.position + new Vector3(0, 0, 0);
-        GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
+        GameObject myBasicAttack = Instantiate(FoxCircle, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
         
