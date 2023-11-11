@@ -111,12 +111,14 @@ public class Monster4 : MonoBehaviour
         curDelay += Time.deltaTime;
     }
 
+    //돌멩이확산
     IEnumerator DeathExplosion()
     {
         speed = 0;
-        this.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0); 
+        this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0); 
         GameObject FragmentPos = GameObject.Find("FragmentPos");
         List<GameObject> rockFragments = new List<GameObject>();
+        HashSet<int> usedIndexes = new HashSet<int>();
 
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < numberOfFragments; i++)
@@ -126,11 +128,19 @@ public class Monster4 : MonoBehaviour
         }
         
         yield return new WaitForSeconds(3f);
-        for (int j = 0; j < numberOfFragments; j++)
+
+        int attempts = 0;
+        while (usedIndexes.Count < numberOfFragments && attempts < numberOfFragments * 2)
         {
-            Rigidbody2D fragmentRigid = rockFragments[j].gameObject.GetComponent<Rigidbody2D>();
-            fragmentRigid.AddForce(Vector2.left * explosionForce, ForceMode2D.Impulse);
-            yield return new WaitForSeconds(0.5f);
+            int j = Random.Range(0, numberOfFragments);
+            if (!usedIndexes.Contains(j))
+            {
+                Rigidbody2D fragmentRigid = rockFragments[j].GetComponent<Rigidbody2D>();
+                fragmentRigid.AddForce(Vector2.left * explosionForce, ForceMode2D.Impulse);
+                usedIndexes.Add(j);
+                yield return new WaitForSeconds(0.5f);
+            }
+            attempts++;
         }
         
         yield return new WaitForSeconds(5f);
