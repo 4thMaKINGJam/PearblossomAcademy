@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     public PlayManager myPlayManager;
 
     Rigidbody2D player;
+    SpriteRenderer spriteRenderer;
+
+    public Sprite[] sprites;
 
     void Awake()
     {
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         isSkill = false;
         attackDelay = basicAttackDelay;
+        spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         AddSkills();
     }
 
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();  //공격
         ReloadAttack();  //공격 재장전
+        ChangeSprite();
     }
 
     void AddSkills()
@@ -159,5 +164,19 @@ public class Player : MonoBehaviour
         myPlayManager.monster3HP -= myPlayManager.playerHyunmuAttack;
         myPlayManager.monster4HP -= myPlayManager.playerHyunmuAttack;
         myPlayManager.monster5HP -= myPlayManager.playerHyunmuAttack;
+    }
+
+    void ChangeSprite()
+    {
+
+        if(Input.GetButton("BasicAttack"))
+        {
+            spriteRenderer.sprite = sprites[1];
+        }
+        else
+        {
+            spriteRenderer.sprite = sprites[0];
+        }
+        
     }
 }
