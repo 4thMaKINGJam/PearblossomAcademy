@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
     public Sprite[] sprites;
 
+    public Vector3 FanPos; //부채 위치
+
     void Awake()
     {
         player = GetComponent<Rigidbody2D>();  
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
         isSkill = false;
         attackDelay = basicAttackDelay;
         spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        FanPos = new Vector3(0, 1.2f, 0);
         AddSkills();
     }
 
@@ -103,7 +106,7 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-        Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
+        Vector3 attackPos = transform.position + FanPos;
         GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);

@@ -53,7 +53,7 @@ public class Jujak : MonoBehaviour
 
     public void GoJujak()
     {
-        Vector3 attackPos = myPlayer.transform.position;
+        Vector3 attackPos = myPlayer.transform.position + myPlayer.FanPos;
         GameObject myJujakAttack = Instantiate(jujakAttack, attackPos, transform.rotation);
         Rigidbody2D rigid = myJujakAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
