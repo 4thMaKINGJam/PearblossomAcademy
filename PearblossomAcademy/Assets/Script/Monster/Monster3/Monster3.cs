@@ -9,13 +9,17 @@ public class Monster3 : MonoBehaviour
     public float basicAttackDelay = 4; //공격들 간 간격 조절 - 4초 간격
     private float basicAttackTimer = 3.5f; 
 
-    private float curDelay = 2.0f; 
+    private float curDelay; 
     public float foodAttackDelay = 0.7f; //0.2초 간격으로 공격- 5초 간
     public float trimAttackDelay = 1; //1초 간격 - 5번 발사
     
+    private bool isFoodAttacking = false;
+    private bool isTrimAttacking = false;
+
 
     //공격 prefab
-    public GameObject Food;//음식 prefab
+    public GameObject Food, Trim;//음식, 트림 prefab
+
 
     //애니메이션
     public Sprite[] sprites;
@@ -44,29 +48,49 @@ public class Monster3 : MonoBehaviour
     //4초 간격으로 하게 변경 
     void FixedUpdate()
     {
-        basicAttackTimer += Time.deltaTime;
-        if(basicAttackTimer >= basicAttackDelay){
-            int i = Random.Range(0,2);
-            switch(i){
-                case 0://음식 공격
+            basicAttackTimer += Time.deltaTime;
+        if (basicAttackTimer >= basicAttackDelay)
+        {
+            // 현재 진행 중인 음식 공격을 중단
+            isFoodAttacking = false;
+            isTrimAttacking = false;
+            curDelay = 0;
+
+            // 새로운 공격 선택
+            int i = Random.Range(0, 2);
+            switch (i)
+            {
+                case 0: // 음식 공격
                     Debug.Log("음식 공격");
-                    FoodAttack(); //음식공격
-                    ReloadFoodAttack(); //음식 재장전
+                    isFoodAttacking = true;
+                    curDelay = foodAttackDelay; // 첫 공격이 즉시 실행되도록 설정
+                    FoodAttack();
                     break;
-                case 1: //트림 공격
+                case 1: // 트림 공격
                     Debug.Log("트림 공격");
+                    isTrimAttacking = true;
+                    curDelay = trimAttackDelay; // 첫 공격이 즉시 실행되도록 설정
                     TrimAttack();
-                    ReloadTrimAttack();
                     break;
-                default: 
+                default:
                     break;
             }
-            basicAttackTimer = 0;
+            basicAttackTimer = 0; // 타이머 초기화
         }
-        
-        
-        Debug.Log("현재 monster damage: "+monsterHP);
+
+        if (isFoodAttacking)
+        {
+            ReloadFoodAttack(); // 음식 공격의 타이밍 관리
+        }
+         if (isTrimAttacking)
+        {
+            ReloadTrimAttack(); // 트림 공격의 타이밍 관리
+        }
+
+        Debug.Log("현재 monster damage: " + monsterHP); 
     }
+
+    
 
 
     void OnTriggerEnter2D(Collider2D collision){
@@ -112,8 +136,6 @@ public class Monster3 : MonoBehaviour
         spriteRenderer.sprite = sprites[0];
     }
 
-
-
     //음식 유도총알 공격
     void FoodAttack()
     {
@@ -126,9 +148,6 @@ public class Monster3 : MonoBehaviour
         myFoodAttack = Instantiate(Food, attackPos, transform.rotation);
         foodRigid = myFoodAttack.GetComponent<Rigidbody2D>();
 
-        // Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
-        // rigid.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-        
         curDelay = 0;
     }
 
@@ -139,11 +158,23 @@ public class Monster3 : MonoBehaviour
     }
 
     void TrimAttack(){
+        if (curDelay < trimAttackDelay)
+        {
+            return;
+        }
+        //무작위 세로 위치에서 트림 생성
+        float i = Random.Range(-3, 5);
 
+        Vector3 attackPos = transform.position + new Vector3(-1.0f, i, 0);
+        GameObject myBasicAttack = Instantiate(Trim, attackPos, transform.rotation);
+        Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
+        rigid.AddForce(Vector2.left * 14, ForceMode2D.Impulse);
+        
+        curDelay = 0;
     }
 
     void ReloadTrimAttack(){
-
+        curDelay += Time.deltaTime;
     }
 
     
