@@ -10,6 +10,7 @@ TagManager:
   - MonsterAttack
   - JujakAttack
   - HyunmuAttack
+  - blossom
   layers:
   - Default
   - TransparentFX
