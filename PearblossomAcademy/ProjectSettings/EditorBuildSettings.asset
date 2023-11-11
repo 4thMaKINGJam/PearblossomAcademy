@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Play/BlueDragon.unity
+    guid: 63b615ed043273549ae2fa7af02ff644
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: cb631982eddb4439790a0752a3296348
@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: e05153f5b5097084892d70ca563baa73
-  - enabled: 1
-    path: Assets/Scenes/Play/BlueDragon.unity
-    guid: 63b615ed043273549ae2fa7af02ff644
   - enabled: 1
     path: Assets/Scenes/Play/Hyunmu.unity
     guid: 15df715e8d75f8e4a9b4c5047ba96498

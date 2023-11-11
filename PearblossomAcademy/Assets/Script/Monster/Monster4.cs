@@ -19,8 +19,8 @@ public class Monster4 : MonoBehaviour
     SpriteRenderer spriteRenderer;
 
     public GameObject rockFragmentPrefab; // 도깨비불 조각 프리팹
-    public int numberOfFragments = 7; // 생성할 조각의 수
-    public float explosionForce = 3f; // 발산 힘의 크기
+    public int numberOfFragments = 10; // 생성할 조각의 수
+    public int explosionForce = 30; // 발산 힘의 크기
 
     private bool isExplode;
    
@@ -79,10 +79,7 @@ public class Monster4 : MonoBehaviour
             //귀수산 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
             isExplode = true;
-            DeathExplosion();
-            //Time.timeScale = 0;
-
-            //게임 종료 씬으로 연결
+            StartCoroutine(DeathExplosion());
         }
 
     }
@@ -114,31 +111,30 @@ public class Monster4 : MonoBehaviour
         curDelay += Time.deltaTime;
     }
 
-    void DeathExplosion()
+    IEnumerator DeathExplosion()
     {
-        
+        speed = 0;
+        this.GetComponent<SpriteRenderer>().color = new Color(1,1,1,0); 
+        GameObject FragmentPos = GameObject.Find("FragmentPos");
+        List<GameObject> rockFragments = new List<GameObject>();
 
-        float angleStep = 360f / numberOfFragments; // 각 조각의 각도 간격
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < numberOfFragments; i++)
         {
-            // 각도 계산
-            float angle = i * angleStep;
-            Vector2 direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-
-            // 돌 조각 생성 및 방향 설정
-            GameObject fragment = Instantiate(rockFragmentPrefab, transform.position, Quaternion.identity);
-            Rigidbody2D fragmentRigid = fragment.GetComponent<Rigidbody2D>();
-            //fragmentRigid.AddForce(direction * explosionForce, ForceMode2D.Impulse);
-            fragmentRigid.AddForce(Vector2.left * 100, ForceMode2D.Impulse);
+            GameObject fragment = Instantiate(rockFragmentPrefab, FragmentPos.transform.GetChild(i).gameObject.transform.position, Quaternion.identity);
+            rockFragments.Add(fragment);
         }
-
-        StartCoroutine(Delay(5f));
+        
+        yield return new WaitForSeconds(3f);
+        for (int j = 0; j < numberOfFragments; j++)
+        {
+            Rigidbody2D fragmentRigid = rockFragments[j].gameObject.GetComponent<Rigidbody2D>();
+            fragmentRigid.AddForce(Vector2.left * explosionForce, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        yield return new WaitForSeconds(5f);
+        //Time.timeScale = 0;
     }
 
-
-    IEnumerator Delay(float time)
-    {
-        yield return new WaitForSeconds(time);
-        Time.timeScale = 0;
-    }
 }
