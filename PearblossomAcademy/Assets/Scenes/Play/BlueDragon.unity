@@ -393,13 +393,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0f2ecf36cd9674fb25f17db006e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: 0
+  playerLife: 5
   monster1HP: 300
   monster2HP: 500
   monster3HP: 1000
   monster4HP: 1500
   monster5HP: 3000
-  monsterFoxCircle: 20
+  monsterAttack: 20
   playerBasicAttack: 20
 --- !u!4 &940022216
 Transform:
