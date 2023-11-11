@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     private float curDelay; 
 
     public GameObject playerBasicAttack; //기본공격 prefab
+    public GameObject BlueDragon;
+    public GameObject Jujak;
+    public GameObject WhiteTiger;
+    public GameObject Hyunmu;
 
     Rigidbody2D player;
 
@@ -47,7 +51,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButton("BasicAttack"))
         {
-            Vector3 attackPos = transform.position + new Vector3(0, -0.5f, 0);
+            Vector3 attackPos = transform.position;// + new Vector3(0, -0.5f, 0);
             GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
             Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
             rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);

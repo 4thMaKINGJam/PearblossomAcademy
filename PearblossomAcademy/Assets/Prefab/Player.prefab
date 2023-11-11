@@ -65,6 +65,10 @@ MonoBehaviour:
   playerBasicAttackDamage: 0
   basicAttackDelay: 0.5
   playerBasicAttack: {fileID: 4736045913528455272, guid: 4e8053de9f8bfa04db4a0d3482368a5b, type: 3}
+  BlueDragon: {fileID: 1308930146578843560, guid: 1c4907fde3c2b2344b219cc45ff562a5, type: 3}
+  Jujak: {fileID: 0}
+  WhiteTiger: {fileID: 0}
+  Hyunmu: {fileID: 0}
 --- !u!61 &3599460786180217166
 BoxCollider2D:
   m_ObjectHideFlags: 0
