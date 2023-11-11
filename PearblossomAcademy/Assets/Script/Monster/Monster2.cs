@@ -6,14 +6,14 @@ public class Monster2 : MonoBehaviour
 {
     public float speed = 0; //이동속도 = 0 정도로 세팅
     public float attackSpeed;
-    
     public float basicAttackDelay; //공격 간격 조절 - 4초 간격
-    private float curDelay; 
-
     public GameObject MonsterFire;//도깨비불 prefab
     public Sprite[] sprites;
+
     int monsterHP;
-    int playerBasicAttack, player2Attack;
+    int playerBasicAttack, jujakAttack;
+
+    private float curDelay = 2.0f; 
 
     Rigidbody2D monster;
     SpriteRenderer spriteRenderer;
@@ -30,7 +30,7 @@ public class Monster2 : MonoBehaviour
         PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster2HP;
         playerBasicAttack = playManager.playerBasicAttack;
-        //player2Attack = playManager.player2Attack; 
+        jujakAttack = playManager.playerJujakAttack; 
         
     }
 
@@ -50,8 +50,8 @@ public class Monster2 : MonoBehaviour
             case "PlayerBasicAttack":
                 OnHit(playerBasicAttack);
                 break;
-            case "SomeOtherTag":
-                // SomeOtherTag에 대한 처리 코드를 여기에 작성하세요.
+            case "JujakAttack":
+                OnHit(jujakAttack);
                 break;
             default:
                 // 기본 처리 코드를 여기에 작성하세요.
@@ -65,7 +65,7 @@ public class Monster2 : MonoBehaviour
     void OnHit(int damage){
         //도깨비 체력 감소
         monsterHP -= damage;
-        Debug.Log("현재 monster damage: "+monsterHP);
+        Debug.Log("현재 monster HP: "+monsterHP);
         
         //몬스터 맞았을 때 표정 변화
         spriteRenderer.sprite = sprites[1];
