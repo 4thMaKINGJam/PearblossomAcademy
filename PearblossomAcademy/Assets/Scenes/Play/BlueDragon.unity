@@ -927,7 +927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &474629670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usableSkill: 00000000
   isGameover: 0
+  GameClear: 0
   Stages: []
   gameImage:
   - {fileID: 474629671}
@@ -1402,7 +1403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &714469896
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2859,7 +2860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1595544833
 RectTransform:
   m_ObjectHideFlags: 0
