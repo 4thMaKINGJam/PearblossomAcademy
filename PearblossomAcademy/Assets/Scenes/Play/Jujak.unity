@@ -1262,6 +1262,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2791865005390099209, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
   m_PrefabInstance: {fileID: 1373787755}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475907978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956797552201470106, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 1327228642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504773762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1356,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2791865005390099208, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
   m_PrefabInstance: {fileID: 1373787755}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526265096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956797553161588245, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 1327228642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1555924388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,6 +1423,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: UltimateCircle.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: UltimateCircle.Array.data[0]
+      value: 
+      objectReference: {fileID: 1929945907}
+    - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: UltimateCircle.Array.data[1]
+      value: 
+      objectReference: {fileID: 1475907978}
+    - target: {fileID: 1626908915644510782, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: UltimateCircle.Array.data[2]
+      value: 
+      objectReference: {fileID: 1526265096}
     - target: {fileID: 3599460786180217166, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: m_Size.x
       value: 0.8
@@ -1644,6 +1670,11 @@ SpriteRenderer:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8704698071874690109, guid: 33dd30f89ecec44b584067402e2ed6a8, type: 3}
   m_PrefabInstance: {fileID: 1054098146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1929945907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956797553300765864, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 1327228642}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2018476190
 GameObject:
