@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("next_stage");
     }
     void reTry() {
+        Time.timeScale=1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
