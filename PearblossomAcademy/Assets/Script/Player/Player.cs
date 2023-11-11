@@ -43,7 +43,6 @@ public class Player : MonoBehaviour
         Move();
         Attack();  //공격
         ReloadAttack();  //공격 재장전
-        Debug.Log(myPlayManager.skillCount);
     }
 
     void AddSkills()
