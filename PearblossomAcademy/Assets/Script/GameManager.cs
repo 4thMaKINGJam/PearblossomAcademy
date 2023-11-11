@@ -17,11 +17,17 @@ public class GameManager : MonoBehaviour
 
     //스테이지 종료 UI
     public GameObject[] gameImage; //gameImage[0]: gameOver / gameImage[1]:gameClear
-    public Image[] blackScreen;
+    public GameObject[] blackScreen;
 
     void Awake()
     {
+        Time.timeScale=1;
         stage_count = 2;
+        // Find the GameOverImage GameObject as a child of the Canvas
+        gameImage[0] = GameObject.Find("GameOverImage");
+        gameImage[1] = GameObject.Find("GameClearImage");
+        blackScreen[0] = GameObject.Find("BlackScreen");
+
 
         if (instance == null){
             instance = this;
@@ -84,7 +90,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("next_stage");
     }
     void reTry() {
-        Time.timeScale=1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

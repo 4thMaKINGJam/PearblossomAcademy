@@ -1783,6 +1783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameClearImage
       objectReference: {fileID: 0}
+    - target: {fileID: 2791865005390099208, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2791865005390099209, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
