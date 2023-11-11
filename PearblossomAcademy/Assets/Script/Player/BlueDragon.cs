@@ -37,11 +37,12 @@ public class BlueDragon : MonoBehaviour
             myPlayer.attackDelay = myPlayer.basicAttackDelay;
         }
 
-        if (Input.GetButton("BlueDragon") && !myPlayer.isSkill)
+        if (Input.GetButton("BlueDragon") && !myPlayer.isSkill && myPlayer.myPlayManager.skillCount>0)
         {
             myPlayer.isSkill = true;
             myPlayer.skillIndex = 0; //청룡 인덱스
             myPlayer.attackDelay = blueDragonDelay;
+            myPlayer.myPlayManager.skillCount--;
         }
     }
 

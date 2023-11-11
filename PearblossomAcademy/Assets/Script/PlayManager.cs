@@ -6,6 +6,7 @@ public class PlayManager : MonoBehaviour
 {
     //player 체력 설정
     public int playerLife = 3;
+    public int skillCount = 3;
     //monster 체력 설정
     public int monster1HP = 300;
     public int monster2HP = 500;
@@ -15,24 +16,13 @@ public class PlayManager : MonoBehaviour
     public int monsterAttack = 20;
 
     public int playerBasicAttack = 10; //player 기본 공격 데미지
-    //임의로 설정
     public int playerJujakAttack = 40;
     public int playerHyunmuAttack = 80;
 
-    
-
     void Start()
     {
-        
         bool[] usableSkill = new bool[] {true, false, false, false};
-
         Player myPlayer = GameObject.Find("Player").GetComponent<Player>();
-        /*
-        if(usableSkill[0]) {GameObject myBlueDragon = Instantiate(myPlayer.BlueDragon, myPlayer.transform);}
-        if(usableSkill[1]) {GameObject myJujak = Instantiate(myPlayer.Jujak, myPlayer.transform);}
-        if(usableSkill[2]) {GameObject myWhiteTiger = Instantiate(myPlayer.WhiteTiger, myPlayer.transform);}
-        if(usableSkill[3]) {GameObject myHyunmu = Instantiate(myPlayer.Hyunmu, myPlayer.transform);}
-        */
     }
 
     public void GameOver()

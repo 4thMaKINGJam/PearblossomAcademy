@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     public bool isSkill;
     public int skillIndex;
 
-    private PlayManager myPlayManager;
+    public PlayManager myPlayManager;
 
     Rigidbody2D player;
 
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();  //공격
         ReloadAttack();  //공격 재장전
+        Debug.Log(myPlayManager.skillCount);
     }
 
     void AddSkills()
@@ -111,9 +112,12 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "MonsterAttack")
         {
-            myPlayManager.playerLife--;
-            Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
-            StartCoroutine(Flicker());
+            if(!(isSkill && skillIndex==2)) //백호
+            {
+                myPlayManager.playerLife--;
+                //Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
+                StartCoroutine(Flicker());
+            } 
         }
 
         if(myPlayManager.playerLife<=0)
