@@ -24,6 +24,7 @@ public class Monster3Attack : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindWithTag("Player");
     }
+    
 
     void FixedUpdate()
     {
@@ -35,6 +36,7 @@ public class Monster3Attack : MonoBehaviour
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
         rb.angularVelocity = -rotateAmount * rotateSpeed;
         rb.velocity = transform.up * speed;
+    
     }
 
     void OnTriggerEnter2D(Collider2D collision)
