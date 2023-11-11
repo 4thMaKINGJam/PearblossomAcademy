@@ -104,6 +104,11 @@ public class Player : MonoBehaviour
             Debug.Log("플레이어 목숨: "+ myPlayManager.playerLife);
             StartCoroutine(Flicker());
         }
+
+        if(myPlayManager.playerLife<=0)
+        {
+            myPlayManager.GameOver();
+        }
     }
 
     IEnumerator Flicker()
