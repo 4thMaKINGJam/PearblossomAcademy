@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Monster1Attack : MonoBehaviour
 {
-   public int damage; //기본공격뎀
+   int damage; //기본공격뎀
+
+   void Awake()
+    {
+    
+        PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        damage = playManager.monsterFoxCircle;
+        
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,5 +20,10 @@ public class Monster1Attack : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // if(collision.gameObject.tag == "PlayerBasicAttack")
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }
