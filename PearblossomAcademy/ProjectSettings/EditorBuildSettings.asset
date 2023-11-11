@@ -6,26 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Play/BlueDragon.unity
-    guid: 63b615ed043273549ae2fa7af02ff644
-  - enabled: 1
-    path: Assets/Scenes/Intro.unity
-    guid: cb631982eddb4439790a0752a3296348
-  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bb3db0b70ad40314cb88889d7408cdbc
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: e05153f5b5097084892d70ca563baa73
   - enabled: 1
-    path: Assets/Scenes/Play/Hyunmu.unity
-    guid: 15df715e8d75f8e4a9b4c5047ba96498
+    path: Assets/Scenes/Intro.unity
+    guid: cb631982eddb4439790a0752a3296348
+  - enabled: 1
+    path: Assets/Scenes/Play/BlueDragon.unity
+    guid: 63b615ed043273549ae2fa7af02ff644
   - enabled: 1
     path: Assets/Scenes/Play/Jujak.unity
     guid: 14e7a3259fb1051489722620e26d5cba
   - enabled: 1
     path: Assets/Scenes/Play/WhiteTiger.unity
     guid: c2c28665b12ed474a82a746b1e3ba0b6
+  - enabled: 1
+    path: Assets/Scenes/Play/Hyunmu.unity
+    guid: 15df715e8d75f8e4a9b4c5047ba96498
   - enabled: 1
     path: Assets/Scenes/Play/YellowDragon.unity
     guid: 7ce6b66308fb4854893723cafe3ad692
