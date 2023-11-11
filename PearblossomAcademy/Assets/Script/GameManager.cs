@@ -68,7 +68,10 @@ public class GameManager : MonoBehaviour
 
     //게임Clear함수
     public void GameClear() {
-        stage_count ++;
+        
+
+        stage_count++;
+        Debug.Log(stage_count);
         //시간멈춤
         Time.timeScale = 0;
 
