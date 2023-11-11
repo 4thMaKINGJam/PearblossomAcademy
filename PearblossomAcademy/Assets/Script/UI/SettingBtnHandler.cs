@@ -60,6 +60,6 @@ public class SettingBtnHandler : MonoBehaviour
 
     void ResetSetting()
     {
-        SceneManager.LoadScene("Start");
+        SceneManager.LoadScene("Intro");
     }
 }
