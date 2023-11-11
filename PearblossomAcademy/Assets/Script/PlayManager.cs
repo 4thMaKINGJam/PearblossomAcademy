@@ -19,10 +19,18 @@ public class PlayManager : MonoBehaviour
     public int playerJujakAttack = 40;
     public int playerHyunmuAttack = 80;
 
-    void Start()
+    public bool isMultipleBoss = true;
+
+    //public int thisMapIndex = 5;
+
+    private Monster5 mixedMonster;
+    public bool isStartAttacking = true;
+
+    void Awake()
     {
         bool[] usableSkill = new bool[] {true, false, false, false};
         Player myPlayer = GameObject.Find("Player").GetComponent<Player>();
+        if(isMultipleBoss){mixedMonster = GameObject.Find("Monster5").GetComponent<Monster5>();}
     }
 
     public void GameOver()
@@ -30,9 +38,36 @@ public class PlayManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void MonsterClear(int clearedMonsterIndex)
+    {
+        if(!isMultipleBoss)
+        {
+            Time.timeScale = 0;
+            GameClear();
+        }
+
+        else
+        {
+            if(clearedMonsterIndex >= 4) //막보스까지 다 깸?
+            {
+                GameClearFinal();
+            }
+            else
+            {
+                mixedMonster.MoveOnToNextMonster(clearedMonsterIndex);
+            }   
+        }
+        
+    }
+
     public void GameClear()
     {
-        Time.timeScale = 0;
+
+    }
+
+    void GameClearFinal()
+    {
+
     }
 
 }

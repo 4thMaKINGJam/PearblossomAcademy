@@ -17,6 +17,7 @@ public class Monster4 : MonoBehaviour
 
     Rigidbody2D monster4;
     SpriteRenderer spriteRenderer;
+    PlayManager playManager;
 
     public GameObject rockFragmentPrefab; // 도깨비불 조각 프리팹
     public int numberOfFragments = 10; // 생성할 조각의 수
@@ -28,7 +29,7 @@ public class Monster4 : MonoBehaviour
     {
         monster4 = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster4HP;
         playerBasicAttack = playManager.playerBasicAttack;
         
@@ -144,7 +145,7 @@ public class Monster4 : MonoBehaviour
         }
         
         yield return new WaitForSeconds(5f);
-        //Time.timeScale = 0;
+        playManager.MonsterClear(4);
     }
 
 }

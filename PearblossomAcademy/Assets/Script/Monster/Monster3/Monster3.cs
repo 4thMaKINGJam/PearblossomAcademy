@@ -32,13 +32,14 @@ public class Monster3 : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D foodRigid;
     GameObject myFoodAttack;
+    PlayManager playManager;
 
    
     void Awake()
     {
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster3HP;
         playerBasicAttack = playManager.playerBasicAttack;
         jujakAttack = playManager.playerJujakAttack; 
@@ -125,7 +126,8 @@ public class Monster3 : MonoBehaviour
         if(monsterHP <=0){
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
-            Time.timeScale = 0;
+            playManager.MonsterClear(3);
+            //Time.timeScale = 0;
 
             //게임 종료 씬으로 연결
         }

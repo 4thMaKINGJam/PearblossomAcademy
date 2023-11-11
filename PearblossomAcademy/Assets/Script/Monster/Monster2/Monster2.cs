@@ -18,6 +18,7 @@ public class Monster2 : MonoBehaviour
     Rigidbody2D monster;
     SpriteRenderer spriteRenderer;
     Rigidbody2D fireRigid;
+    PlayManager playManager;
 
     public GameObject fireFragmentPrefab; // 도깨비불 조각 프리팹
     public int numberOfFragments = 7; // 생성할 조각의 수
@@ -27,7 +28,7 @@ public class Monster2 : MonoBehaviour
     {
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        PlayManager playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
+        playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster2HP;
         playerBasicAttack = playManager.playerBasicAttack;
         jujakAttack = playManager.playerJujakAttack; 
@@ -75,7 +76,8 @@ public class Monster2 : MonoBehaviour
         if(monsterHP <=0){
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
-            Time.timeScale = 0;
+            playManager.MonsterClear(2);
+            //Time.timeScale = 0;
 
             //게임 종료 씬으로 연결
         }
