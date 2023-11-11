@@ -599,7 +599,9 @@ MonoBehaviour:
   speed: 6
   basicAttackDelay: 1
   Rock: {fileID: 6394383795989398964, guid: 8fd10a570204b254ca12ad905924f511, type: 3}
-  sprites: []
+  sprites:
+  - {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
+  - {fileID: 21300000, guid: 748ae8b33df036b46a86e0387f1602cf, type: 3}
   rockFragmentPrefab: {fileID: 6394383795989398964, guid: 74a6a61aea25e034a91fc06c49db3b8a, type: 3}
   numberOfFragments: 7
   explosionForce: 3
