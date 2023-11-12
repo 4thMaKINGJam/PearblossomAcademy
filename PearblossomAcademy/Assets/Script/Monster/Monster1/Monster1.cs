@@ -18,11 +18,8 @@ public class Monster1 : MonoBehaviour
 
     Rigidbody2D monster1;
     SpriteRenderer spriteRenderer;
-<<<<<<< Updated upstream
-    PlayManager playManager;
-    //GameManager gameManager;
-=======
     GameManager gameManager;
+    PlayManager playManager;
 
      //오디오클립
     public AudioClip audioMonsterAttack; //몬스터공격
@@ -41,7 +38,6 @@ public class Monster1 : MonoBehaviour
         } 
         audioSource.Play();
     }
->>>>>>> Stashed changes
    
     void Awake()
     {
