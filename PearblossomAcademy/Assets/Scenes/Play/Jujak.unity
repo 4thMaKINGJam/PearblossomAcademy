@@ -1790,6 +1790,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster2
       objectReference: {fileID: 0}
+    - target: {fileID: 4557371606922367206, guid: 2a8cf1e15ed8fc946a6894a023b36289, type: 3}
+      propertyPath: audioMonsterDie
+      value: 
+      objectReference: {fileID: 8300000, guid: 6128862d63404a544b80c627e058fb80, type: 3}
     - target: {fileID: 4557371606922367207, guid: 2a8cf1e15ed8fc946a6894a023b36289, type: 3}
       propertyPath: m_RootOrder
       value: 0

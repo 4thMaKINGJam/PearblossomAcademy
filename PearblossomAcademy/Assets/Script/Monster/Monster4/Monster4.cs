@@ -28,6 +28,7 @@ public class Monster4 : MonoBehaviour
 
     //사운드
     public AudioClip audioMonsterDie;
+    public AudioClip rockExplosion;
 
     AudioSource audioSource;
 
@@ -35,6 +36,9 @@ public class Monster4 : MonoBehaviour
         switch(action){
             case "MonsterDie":
                 audioSource.clip = audioMonsterDie;
+                break;
+            case "rockExplosion":
+                audioSource.clip = rockExplosion;
                 break;
         } 
         audioSource.Play();
@@ -135,6 +139,7 @@ public class Monster4 : MonoBehaviour
     //돌멩이확산
     IEnumerator DeathExplosion()
     {
+        PlaySound("rockExplosion");
         speed = 0;
         this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0); 
         GameObject FragmentPos = GameObject.Find("FragmentPos");
@@ -185,6 +190,7 @@ public class Monster4 : MonoBehaviour
         }
         */
         yield return new WaitForSeconds(3f);
+        PlaySound("MonsterDie");
         playManager.MonsterClear(3);
     }
 

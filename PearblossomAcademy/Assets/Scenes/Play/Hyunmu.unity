@@ -2793,6 +2793,14 @@ PrefabInstance:
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4663649471209663604, guid: 15d93eb1344ff8740bfea9a03f3b8cdd, type: 3}
+      propertyPath: rockExplosion
+      value: 
+      objectReference: {fileID: 8300000, guid: f59c7726a510c9c458fd8df37916aa0c, type: 3}
+    - target: {fileID: 4663649471209663604, guid: 15d93eb1344ff8740bfea9a03f3b8cdd, type: 3}
+      propertyPath: audioMonsterDie
+      value: 
+      objectReference: {fileID: 8300000, guid: 6128862d63404a544b80c627e058fb80, type: 3}
     - target: {fileID: 4663649471209663605, guid: 15d93eb1344ff8740bfea9a03f3b8cdd, type: 3}
       propertyPath: m_SortingLayer
       value: 1
