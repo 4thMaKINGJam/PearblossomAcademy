@@ -127,6 +127,8 @@ public class Monster4 : MonoBehaviour
         GameObject myBasicAttack = Instantiate(Rock, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+        spriteRenderer.sprite = sprites[2];
+        Invoke("ReturnSprite",0.5f);
         
         curDelay = 0;
     }
@@ -140,6 +142,7 @@ public class Monster4 : MonoBehaviour
     IEnumerator DeathExplosion()
     {
         PlaySound("rockExplosion");
+        spriteRenderer.sprite = sprites[2];
         speed = 0;
         this.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0); 
         GameObject FragmentPos = GameObject.Find("FragmentPos");

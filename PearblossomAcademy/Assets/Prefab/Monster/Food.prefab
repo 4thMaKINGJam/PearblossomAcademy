@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotateSpeed: 350
+  rotateSpeed: 200
 --- !u!95 &-3284673947225329359
 Animator:
   serializedVersion: 4

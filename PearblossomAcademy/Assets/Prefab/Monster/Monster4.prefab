@@ -143,6 +143,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 5b6bb61ab310e461689becc3770ad605, type: 3}
   - {fileID: 21300000, guid: bf9335da9ec0d486d9e967f441f736dc, type: 3}
+  - {fileID: 21300000, guid: 004b277d670eb4e4793633f8d140958d, type: 3}
   rockFragmentPrefab: {fileID: 6394383795989398964, guid: 74a6a61aea25e034a91fc06c49db3b8a, type: 3}
   numberOfFragments: 10
   explosionForce: 30
