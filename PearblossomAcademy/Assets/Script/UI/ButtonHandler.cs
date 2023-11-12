@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +15,33 @@ public class ButtonHandler : MonoBehaviour
     public int currentIndex = 0;
     private int unlock_stage;
 
+    //사운드
+    public AudioClip audioStart;
+    public AudioClip audioFlip;
+
+    AudioSource audioSource;
+
+
     GameManager gameManager;
+    StartBtnSound startBtnSound;
+
+
+    public void PlaySound(String action){
+        switch(action){
+            case "BtnStart":
+                audioSource.clip = audioStart;
+                break;
+            case "BtnFlip":
+                audioSource.clip = audioFlip;
+                break;
+        } 
+        audioSource.Play();
+    }
 
     void Awake(){
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
+        // startBtnSound = GameObject.Find("StartBtnSound").GetComponent<StartBtnSound>();
     }
 
 
@@ -40,10 +64,24 @@ public class ButtonHandler : MonoBehaviour
 
         Button button_start = GameObject.Find("stage_start").GetComponent<Button>();
 
-        buttonRight.onClick.AddListener(() => FlipRight());
-        buttonLeft.onClick.AddListener(() => FlipLeft());
+        // buttonRight.onClick.AddListener(() => FlipRight());
+        // buttonLeft.onClick.AddListener(() => FlipLeft());
 
-        button_start.onClick.AddListener(() => ActivateScene());
+        buttonRight.onClick.AddListener(() => {
+            PlaySound("BtnFlip");
+            FlipRight();
+        });
+        buttonLeft.onClick.AddListener(() => {
+            PlaySound("BtnFlip");
+            FlipLeft();
+        });
+        
+        // 버튼 클릭 시 사운드 재생과 씬 활성화를 함께 추가
+        button_start.onClick.AddListener(() => 
+        {
+            PlaySound("BtnStart");
+            ActivateScene();
+        });
     }
 
 

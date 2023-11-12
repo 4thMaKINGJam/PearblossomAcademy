@@ -8,7 +8,7 @@ public class StartBtnSound : MonoBehaviour
 
     AudioSource audioSource;
 
-    void PlaySound(){
+    public void PlaySound(){
         audioSource.clip = audioStart;
         audioSource.Play();
     }
