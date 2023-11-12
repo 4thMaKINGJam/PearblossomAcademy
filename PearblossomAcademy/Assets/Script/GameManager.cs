@@ -68,21 +68,23 @@ public class GameManager : MonoBehaviour
 
     public void GameClearFinal()
     {
-        Time.timeScale = 0;
         myWhiteScreen = Instantiate(blackwhiteScreen[1], GameObject.Find("Canvas").transform);
         StartCoroutine(FadeIn());
+        //Time.timeScale = 0;
     }
 
     IEnumerator FadeIn()
     {
         float fadeCnt = 0;
-
+        yield return new WaitForSeconds(1f);
         while (fadeCnt < 1.0f)
         {
-            fadeCnt += 0.1f;
+            fadeCnt += 0.01f;
             yield return new WaitForSeconds(0.01f);
             myWhiteScreen.GetComponent<Image>().color = new Color(1,1,1,fadeCnt);
         }
+        SceneManager.LoadScene("Main");
+
     }
 
     void GoMenu() {
