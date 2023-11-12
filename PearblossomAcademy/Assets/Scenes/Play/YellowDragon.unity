@@ -1013,6 +1013,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &441200213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4165912275558283057, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 208140929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &451536049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1198,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &542435629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4929294077561013534, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 208140929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692288024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1287,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &699315588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2500613775843015671, guid: 01717d58a965842cc870137ff858ed20, type: 3}
+  m_PrefabInstance: {fileID: 208140929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &745655877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,9 +1843,9 @@ MonoBehaviour:
   isMultipleBoss: 1
   isStartAttacking: 0
   UltimateCircles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 699315588}
+  - {fileID: 441200213}
+  - {fileID: 542435629}
 --- !u!4 &1353895077
 Transform:
   m_ObjectHideFlags: 0
