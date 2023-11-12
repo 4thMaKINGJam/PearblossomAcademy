@@ -8,7 +8,7 @@ public class StartBtnSound : MonoBehaviour
 
     AudioSource audioSource;
 
-    void PlaySound(String action){
+    void PlaySound(){
         audioSource.clip = audioStart;
         audioSource.Play();
     }
@@ -16,6 +16,8 @@ public class StartBtnSound : MonoBehaviour
     void Awake(){
         audioSource = GetComponent<AudioSource>();
     }
+
+    //onclick이 일어나면 playsound 함수콜 되게 변경
     
     
 }

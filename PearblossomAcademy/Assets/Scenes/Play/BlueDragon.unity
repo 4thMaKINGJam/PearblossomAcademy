@@ -1345,8 +1345,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1691065296 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3599460786180217203, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
@@ -1453,7 +1451,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1956797553300765864, guid: 01717d58a965842cc870137ff858ed20, type: 3}
   m_PrefabInstance: {fileID: 5568853868109447503}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &1789875554
 GameObject:
   m_ObjectHideFlags: 0
