@@ -452,70 +452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
---- !u!1 &474629669 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8704698071874690109, guid: 33dd30f89ecec44b584067402e2ed6a8, type: 3}
-  m_PrefabInstance: {fileID: 8704698072347974168}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &474629670 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8704698071874690110, guid: 33dd30f89ecec44b584067402e2ed6a8, type: 3}
   m_PrefabInstance: {fileID: 8704698072347974168}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &518008601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 518008603}
-  - component: {fileID: 518008602}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &518008602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518008601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eeb271a6e0d2bf4e88fe23b7ec94eec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usableSkill: 00000000
-  isGameover: 0
-  sceneCount: 0
-  stage_count: 0
-  Stages: []
-  gameImage:
-  - {fileID: 474629669}
-  - {fileID: 1595544832}
-  blackScreen:
-  - {fileID: 714469895}
---- !u!4 &518008603
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518008601}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.510944, y: 2.0318117, z: 21128.545}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &521220231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5568853868427112904, guid: 01717d58a965842cc870137ff858ed20, type: 3}
@@ -825,6 +766,8 @@ MonoBehaviour:
   playerBasicAttack: 20
   playerJujakAttack: 40
   playerHyunmuAttack: 80
+  isMultipleBoss: 1
+  isStartAttacking: 1
   UltimateCircles:
   - {fileID: 5568853868109447505}
   - {fileID: 5568853868109447504}
@@ -1310,11 +1253,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1595544832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2791865005390099208, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
-  m_PrefabInstance: {fileID: 2791865006344693256}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1595544833 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2791865005390099209, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
@@ -1900,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5568853869660797950, guid: 01717d58a965842cc870137ff858ed20, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5568853869660797950, guid: 01717d58a965842cc870137ff858ed20, type: 3}
       propertyPath: m_LocalPosition.x

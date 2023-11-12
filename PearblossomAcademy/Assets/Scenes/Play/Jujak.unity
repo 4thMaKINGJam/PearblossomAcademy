@@ -191,60 +191,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 1}
   m_EdgeRadius: 0
---- !u!1 &230397990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 230397992}
-  - component: {fileID: 230397991}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &230397991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230397990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eeb271a6e0d2bf4e88fe23b7ec94eec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usableSkill: 00000000
-  isGameover: 0
-  sceneCount: 0
-  stage_count: 0
-  Stages: []
-  gameImage:
-  - {fileID: 8704698071785283295}
-  - {fileID: 2791865006193157475}
-  blackScreen:
-  - {fileID: 2018476190}
---- !u!4 &230397992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 230397990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.505317, y: 2.6283796, z: -0.07033641}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350237884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1061,8 @@ MonoBehaviour:
   playerBasicAttack: 20
   playerJujakAttack: 40
   playerHyunmuAttack: 80
+  isMultipleBoss: 1
+  isStartAttacking: 1
   UltimateCircles:
   - {fileID: 1327228644}
   - {fileID: 1327228643}
@@ -1656,7 +1604,7 @@ Transform:
   - {fileID: 862834394}
   - {fileID: 1844191984}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &2396000919941232672
 CanvasRenderer:
