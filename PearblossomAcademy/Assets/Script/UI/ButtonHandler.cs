@@ -126,7 +126,7 @@ public class ButtonHandler : MonoBehaviour
 {
     if (activeObject == main_book[0])  // main_intro와 비교
     {
-        SceneManager.LoadScene("Intro");
+        SceneManager.LoadScene("Main");
         DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[1])  // main_bdrgn와 비교
