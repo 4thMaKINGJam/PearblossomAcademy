@@ -50,13 +50,17 @@ public class Monster3 : MonoBehaviour
     Rigidbody2D foodRigid;
     GameObject myFoodAttack;
     PlayManager playManager;
+    Animator anim;
 
    
     void Awake()
     {
+        
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("isAttacked", false);
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster3HP;
         playerBasicAttack = playManager.playerBasicAttack;
@@ -137,26 +141,32 @@ public class Monster3 : MonoBehaviour
 
     //몬스터 damage 받기
     void OnHit(int damage){
+        anim.SetBool("isAttacked", true);
         //도깨비 체력 감소
         monsterHP -= damage;
         Debug.Log("현재 monster HP: "+monsterHP);
         
         //몬스터 맞았을 때 표정 변화
-        spriteRenderer.sprite = sprites[1];
-        Invoke("ReturnSprite",0.5f);
+        // spriteRenderer.sprite = sprites[2];
+        Invoke("isAttacked",0.3f);
         
         //몬스터 사망
         if(monsterHP <=0){
             //소리
             PlaySound("MonsterDie");
-            //몬스터 죽음 sprite - 표정 바꾸기
-            spriteRenderer.sprite = sprites[1];
+            // //몬스터 죽음 sprite - 표정 바꾸기
+            // spriteRenderer.sprite = sprites[2];
             playManager.MonsterClear(2);
             //Time.timeScale = 0;
 
             //게임 종료 씬으로 연결
             //gameManager.GameClear();
         }
+
+    }
+
+    void isAttacked(){
+        anim.SetBool("isAttacked", false);
 
     }
 
