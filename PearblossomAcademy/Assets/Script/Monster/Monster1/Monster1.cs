@@ -47,6 +47,8 @@ public class Monster1 : MonoBehaviour
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monsterHP = playManager.monster1HP;
         playerBasicAttack = playManager.playerBasicAttack;
+
+        audioSource = GetComponent<AudioSource>(); // AudioSource 컴포넌트 초기화
     }
 
     
