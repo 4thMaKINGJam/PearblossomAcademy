@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
 
     public Vector3 FanPos; //부채 위치
 
+    Animator MirAnim;
+
     void PlaySound(String action){
         switch(action){
             case "PlayerAttack":
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         attackDelay = basicAttackDelay;
         spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         FanPos = new Vector3(0, 1.2f, 0);
+        MirAnim = GetComponent<Animator>();
         AddSkills();
     }
 
@@ -250,10 +253,12 @@ public class Player : MonoBehaviour
         if(Input.GetButton("BasicAttack"))
         {
             spriteRenderer.sprite = sprites[1];
+            MirAnim.SetBool("isAttack", true);
         }
         else
         {
             spriteRenderer.sprite = sprites[0];
+            MirAnim.SetBool("isAttack", false);
         }
         
     }
