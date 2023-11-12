@@ -24,6 +24,20 @@ public class Monster4 : MonoBehaviour
     public int explosionForce = 30; // 발산 힘의 크기
 
     private bool isExplode;
+
+    //사운드
+    public AudioClip audioMonsterDie;
+
+    AudioSource audioSource;
+
+    void PlaySound(String action){
+        switch(action){
+            case "MonsterDie":
+                audioSource.clip = audioMonsterDie;
+                break;
+        } 
+        audioSource.Play();
+    }
    
     void Awake()
     {

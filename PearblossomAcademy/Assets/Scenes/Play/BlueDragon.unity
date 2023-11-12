@@ -336,6 +336,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: audioPlayerDie
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e0926eaecd68f849b1cde26212de2a4, type: 3}
+    - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
+      propertyPath: audioJujakAttack
+      value: 
+      objectReference: {fileID: 8300000, guid: f8e80e097a79f6e4c8cd868cabb9db45, type: 3}
+    - target: {fileID: 3599460786180217167, guid: 575875d243a112b48929dcd2c1a97c2e, type: 3}
       propertyPath: audioPlayerAttack
       value: 
       objectReference: {fileID: 8300000, guid: 39ca8f1fb07547f4ca611e534dd081f2, type: 3}
@@ -1774,7 +1782,7 @@ PrefabInstance:
     - target: {fileID: 2999615073548229822, guid: b3cd194ecb5ca40ec91176b28b6ec714, type: 3}
       propertyPath: audioMonsterDie
       value: 
-      objectReference: {fileID: 8300000, guid: 0e0926eaecd68f849b1cde26212de2a4, type: 3}
+      objectReference: {fileID: 8300000, guid: 6128862d63404a544b80c627e058fb80, type: 3}
     - target: {fileID: 2999615073548229822, guid: b3cd194ecb5ca40ec91176b28b6ec714, type: 3}
       propertyPath: audioMonsterAttack
       value: 

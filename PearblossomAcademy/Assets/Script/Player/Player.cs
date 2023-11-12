@@ -30,7 +30,9 @@ public class Player : MonoBehaviour
     public int skillIndex;
 
     //사운드
-    public AudioClip audioPlayerAttack; 
+    public AudioClip audioPlayerAttack; //기본, 청룡필살기
+    public AudioClip audioJujakAttack; //주작필살기
+    public AudioClip audioPlayerDie; //플레이어죽음 = 게임오버
     AudioSource audioSource;
 
     public PlayManager myPlayManager;
@@ -48,9 +50,9 @@ public class Player : MonoBehaviour
             case "PlayerAttack":
                 audioSource.clip = audioPlayerAttack;
                 break;
-            // case "PlayerDamaged":
-            //     audioSource.clip = audioPlayerDamaged;
-            //     break;
+            case "GameOver":
+                audioSource.clip = audioPlayerDie;
+                break;
         } 
         audioSource.Play();
     }
@@ -58,7 +60,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         cnt = 0;
-        player = GetComponent<Rigidbody2D>();  
+        player = GetComponent<Rigidbody2D>(); 
+        //오디오 
         audioSource = GetComponent<AudioSource>();
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         //myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -134,13 +137,14 @@ public class Player : MonoBehaviour
             {
                 switch(skillIndex)
                 {
-                    case 0: 
+                    case 0: //BlueDragon
+                        PlaySound("PlayerAttack");
                         myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); 
                         break;
-                    case 1: 
+                    case 1: //Jujak
                         myJujak.GetComponent<Jujak>().GoJujak();
                         break;
-                    case 2: 
+                    case 2: //
                         Shoot(); 
                         break;
                     case 3: 
@@ -155,7 +159,6 @@ public class Player : MonoBehaviour
                 Shoot();
                 //player공격사운드
                 PlaySound("PlayerAttack");
-                Debug.Log("playerAttack소리");
         
             }
 
@@ -199,6 +202,7 @@ public class Player : MonoBehaviour
         if(myPlayManager.playerLife<=0)
         {
             myPlayManager.GameOver();
+            PlaySound("GameOver");
             //myGameManager.GameOver();
 
         }
