@@ -1377,7 +1377,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408301033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0, z: 0}
+  m_LocalPosition: {x: 5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2612,13 +2612,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0f2ecf36cd9674fb25f17db006e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: 5
+  playerLife: 100
   skillCount: 3
   monster1HP: 300
-  monster2HP: 500
-  monster3HP: 1000
-  monster4HP: 1500
-  monster5HP: 3000
+  monster2HP: 200
+  monster3HP: 200
+  monster4HP: 200
+  monster5HP: 200
   monsterAttack: 20
   playerBasicAttack: 20
   playerJujakAttack: 40
