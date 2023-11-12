@@ -36,6 +36,7 @@ public class Monster2 : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Rigidbody2D fireRigid;
     PlayManager playManager;
+     Animator anim;
 
     public GameObject fireFragmentPrefab; // 도깨비불 조각 프리팹
     public int numberOfFragments = 7; // 생성할 조각의 수
@@ -46,6 +47,8 @@ public class Monster2 : MonoBehaviour
         //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        anim.SetBool("isAttacked", false);
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster2HP;
         playerBasicAttack = playManager.playerBasicAttack;
@@ -88,6 +91,8 @@ public class Monster2 : MonoBehaviour
     //몬스터 damage 받기
     void OnHit(int damage){
         //도깨비 체력 감소
+         anim.SetBool("isAttacked", true);
+          Invoke("isAttacked",0.3f);
         monsterHP -= damage;
         Debug.Log("현재 monster HP: "+monsterHP);
         
@@ -108,6 +113,13 @@ public class Monster2 : MonoBehaviour
 
             //게임 종료 씬으로 연결
         }
+
+        
+
+    }
+
+    void isAttacked(){
+        anim.SetBool("isAttacked", false);
 
     }
 
