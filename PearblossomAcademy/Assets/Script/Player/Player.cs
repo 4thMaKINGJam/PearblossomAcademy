@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     public int skillIndex;
 
     public PlayManager myPlayManager;
-    public GameManager myGameManager;
+    //public GameManager myGameManager;
 
     Rigidbody2D player;
     SpriteRenderer spriteRenderer;
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         cnt = 0;
         player = GetComponent<Rigidbody2D>();  
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
-        myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         isSkill = false;
         attackDelay = basicAttackDelay;
         spriteRenderer = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
         {
             if(!(isSkill && skillIndex==2)) //백호
             {
-                myPlayManager.playerLife--;
+                myPlayManager.playerLife--;            
                 Destroy(LifeBlossom[cnt]);
                 cnt++;
                 StartCoroutine(Flicker());
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
         if(myPlayManager.playerLife<=0)
         {
             myPlayManager.GameOver();
-            myGameManager.GameOver();
+            //myGameManager.GameOver();
 
         }
     }

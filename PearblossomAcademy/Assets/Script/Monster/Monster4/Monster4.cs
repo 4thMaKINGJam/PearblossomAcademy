@@ -38,10 +38,13 @@ public class Monster4 : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(playManager.isStartAttacking)
+        {
         Move();
         BasicAttack();  //기본공격
         ReloadBasicAttack(); //기본공격 재장전
         //Debug.Log("현재 monster damage: "+monsterHP);
+        }
     }
 
     void Move()
@@ -145,7 +148,7 @@ public class Monster4 : MonoBehaviour
         }
         
         yield return new WaitForSeconds(5f);
-        playManager.MonsterClear(4);
+        playManager.MonsterClear(3);
     }
 
 }

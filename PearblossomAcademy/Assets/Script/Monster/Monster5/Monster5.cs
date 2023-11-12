@@ -53,21 +53,36 @@ public class Monster5 : MonoBehaviour
 
     void GoMonster2()
     {
-
+        GameObject myMonster2 = Instantiate(Monster2, StartPos, transform.rotation);
+        myMonsterList.Add(myMonster2);
+        isMonsterMoving[1] = true;
+        Debug.Log("go monster 2");
     }
 
     void GoMonster3()
     {
-
+        GameObject myMonster3 = Instantiate(Monster3, StartPos, transform.rotation);
+        myMonsterList.Add(myMonster3);
+        isMonsterMoving[2] = true;
     }
 
     void GoMonster4()
     {
-
+        GameObject myMonster4 = Instantiate(Monster4, StartPos, transform.rotation);
+        myMonsterList.Add(myMonster4);
+        isMonsterMoving[3] = true;
     }
 
     public void MoveOnToNextMonster(int killedMonsterIndex)
     {
+        playManager.isStartAttacking = false;
 
+        switch(killedMonsterIndex)
+        {
+            case 0: isMonsterMoving[0] = false; myMonsterList[0].SetActive(false); GoMonster2(); Debug.Log("일단 여기까진 진입"); break;
+            case 1: isMonsterMoving[1] = false; myMonsterList[1].SetActive(false); GoMonster3(); break;
+            case 2: isMonsterMoving[2] = false; myMonsterList[2].SetActive(false); GoMonster4(); break;
+            default: break;
+        }
     }
 }

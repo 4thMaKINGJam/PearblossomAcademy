@@ -13,7 +13,7 @@ public class Monster2 : MonoBehaviour
     int monsterHP;
     int playerBasicAttack, jujakAttack;
 
-    GameManager gameManager;
+    //GameManager gameManager;
 
     private float curDelay = 2.0f; 
 
@@ -28,7 +28,7 @@ public class Monster2 : MonoBehaviour
    
     void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
@@ -41,9 +41,12 @@ public class Monster2 : MonoBehaviour
     
     void FixedUpdate()
     {
+        if(playManager.isStartAttacking)
+        {
         FireAttack();  //도깨비불 공격
         ReloadFireAttack(); //도깨비불 재장전
         Debug.Log("현재 monster damage: "+monsterHP);
+        }
     }
 
 
@@ -79,10 +82,10 @@ public class Monster2 : MonoBehaviour
         if(monsterHP <=0){
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
-            playManager.MonsterClear(2);
+            playManager.MonsterClear(1);
             //Time.timeScale = 0;
 
-            gameManager.GameClear();
+            //gameManager.GameClear();
 
             //게임 종료 씬으로 연결
         }

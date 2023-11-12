@@ -16,7 +16,7 @@ public class Monster3 : MonoBehaviour
     private bool isFoodAttacking = false;
     private bool isTrimAttacking = false;
 
-    GameManager gameManager;
+    //GameManager gameManager;
 
 
     //공격 prefab
@@ -39,7 +39,7 @@ public class Monster3 : MonoBehaviour
    
     void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         monster = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
@@ -52,6 +52,8 @@ public class Monster3 : MonoBehaviour
     //4초 간격으로 하게 변경 
     void FixedUpdate()
     {
+        if(playManager.isStartAttacking)
+        {
             basicAttackTimer += Time.deltaTime;
         if (basicAttackTimer >= basicAttackDelay)
         {
@@ -92,6 +94,7 @@ public class Monster3 : MonoBehaviour
         }
 
         Debug.Log("현재 monster damage: " + monsterHP); 
+        }
     }
 
     
@@ -129,11 +132,11 @@ public class Monster3 : MonoBehaviour
         if(monsterHP <=0){
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
-            playManager.MonsterClear(3);
+            playManager.MonsterClear(2);
             //Time.timeScale = 0;
 
             //게임 종료 씬으로 연결
-            gameManager.GameClear();
+            //gameManager.GameClear();
         }
 
     }
