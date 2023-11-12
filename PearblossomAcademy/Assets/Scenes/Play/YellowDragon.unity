@@ -1826,7 +1826,7 @@ MonoBehaviour:
   playerJujakAttack: 40
   playerHyunmuAttack: 80
   isMultipleBoss: 1
-  isStartAttacking: 1
+  isStartAttacking: 0
   UltimateCircles:
   - {fileID: 0}
   - {fileID: 0}
