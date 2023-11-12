@@ -46,6 +46,8 @@ public class Monster4 : MonoBehaviour
         playManager = GameObject.Find("PlayManager").GetComponent<PlayManager>();
         monsterHP = playManager.monster4HP;
         playerBasicAttack = playManager.playerBasicAttack;
+
+        audioSource = GetComponent<AudioSource>(); // AudioSource 컴포넌트 초기화
         
     }
 

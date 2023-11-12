@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,20 @@ public class Monster3 : MonoBehaviour
     int monsterHP;
     int playerBasicAttack, jujakAttack;
 
+    //사운드
+    public AudioClip audioMonsterDie;
+
+    AudioSource audioSource;
+
+    void PlaySound(String action){
+        switch(action){
+            case "MonsterDie":
+                audioSource.clip = audioMonsterDie;
+                break;
+        } 
+        audioSource.Play();
+    }
+
     Rigidbody2D monster;
     SpriteRenderer spriteRenderer;
     Rigidbody2D foodRigid;
@@ -46,6 +61,8 @@ public class Monster3 : MonoBehaviour
         monsterHP = playManager.monster3HP;
         playerBasicAttack = playManager.playerBasicAttack;
         jujakAttack = playManager.playerJujakAttack; 
+
+        audioSource = GetComponent<AudioSource>(); // AudioSource 컴포넌트 초기화
     }
 
     
@@ -130,6 +147,8 @@ public class Monster3 : MonoBehaviour
         
         //몬스터 사망
         if(monsterHP <=0){
+            //소리
+            PlaySound("MonsterDie");
             //몬스터 죽음 sprite - 표정 바꾸기
             spriteRenderer.sprite = sprites[1];
             playManager.MonsterClear(2);
