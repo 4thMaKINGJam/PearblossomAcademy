@@ -146,6 +146,7 @@ MonoBehaviour:
   Trim: {fileID: 1039962099102032698, guid: d37b47c0865803641933103352b7b725, type: 3}
   sprites:
   - {fileID: 21300000, guid: 79b0eb22a22ec4f58aea1bd2bee26009, type: 3}
+  - {fileID: 21300000, guid: 6bddcf74c36416d4bb8478ea7a5b632c, type: 3}
   - {fileID: 21300000, guid: 7d280dc05a37e43bfb01eaac3397c50a, type: 3}
   audioMonsterDie: {fileID: 8300000, guid: 6128862d63404a544b80c627e058fb80, type: 3}
 --- !u!82 &1090673570113555281
@@ -254,7 +255,7 @@ Animator:
   m_GameObject: {fileID: 8566357921728470386}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4bac5731a6699db4b9f3179d0618d2ed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
