@@ -1193,11 +1193,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &652971607 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4929294077561013534, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 208140929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &692288024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,16 +1785,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5568853868427112904, guid: 01717d58a965842cc870137ff858ed20, type: 3}
   m_PrefabInstance: {fileID: 208140929}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1328472946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2500613775843015671, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 208140929}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1349367590 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4165912275558283057, guid: 01717d58a965842cc870137ff858ed20, type: 3}
-  m_PrefabInstance: {fileID: 208140929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1353895075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,23 +1814,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0f2ecf36cd9674fb25f17db006e4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLife: 100
+  playerLife: 5
   skillCount: 3
-  monster1HP: 300
-  monster2HP: 200
-  monster3HP: 200
-  monster4HP: 200
-  monster5HP: 200
+  monster1HP: 210
+  monster2HP: 350
+  monster3HP: 700
+  monster4HP: 1050
+  monster5HP: 2100
   monsterAttack: 20
   playerBasicAttack: 20
   playerJujakAttack: 40
   playerHyunmuAttack: 80
   isMultipleBoss: 1
-  isStartAttacking: 0
+  isStartAttacking: 1
   UltimateCircles:
-  - {fileID: 1328472946}
-  - {fileID: 1349367590}
-  - {fileID: 652971607}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1353895077
 Transform:
   m_ObjectHideFlags: 0
