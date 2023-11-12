@@ -18,8 +18,14 @@ public class SettingBtnHandler : MonoBehaviour
     void Start()
     {
         game_clear = 0;
-        Button setting_btn = GameObject.Find("btn_set").GetComponent<Button>();
-        setting_btn.onClick.AddListener(() => ActivateSetting());
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ActivateSetting();
+        }
     }
     
     void ActivateSetting()
