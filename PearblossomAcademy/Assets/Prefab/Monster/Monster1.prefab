@@ -141,4 +141,5 @@ MonoBehaviour:
   FoxCircle: {fileID: 6394383795989398964, guid: 8b827b19a093afa48bd6f5f09b1208fe, type: 3}
   sprites:
   - {fileID: 21300000, guid: 5305cc94f9aca411cb878952305549b3, type: 3}
-  - {fileID: 21300000, guid: 8a6813acc473c491ab105efe924260f7, type: 3}
+  - {fileID: 21300000, guid: 0259d658af46041fa8d8bd355007ad31, type: 3}
+  audioMonsterAttack: {fileID: 0}
