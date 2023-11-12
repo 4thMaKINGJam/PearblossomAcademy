@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,8 +18,30 @@ public class Monster1 : MonoBehaviour
 
     Rigidbody2D monster1;
     SpriteRenderer spriteRenderer;
+<<<<<<< Updated upstream
     PlayManager playManager;
     //GameManager gameManager;
+=======
+    GameManager gameManager;
+
+     //오디오클립
+    public AudioClip audioMonsterAttack; //몬스터공격
+    // public AudioClip audioMonsterDamaged;  //몬스터데미지
+
+    AudioSource audioSource;
+
+    void PlaySound(String action){
+        switch(action){
+            case "MonsterAttack":
+                audioSource.clip = audioMonsterAttack;
+                break;
+            // case "MonsterDamaged":
+            //     audioSource.clip = audioMonsterDamaged;
+            //     break;
+        } 
+        audioSource.Play();
+    }
+>>>>>>> Stashed changes
    
     void Awake()
     {
@@ -68,6 +91,8 @@ public class Monster1 : MonoBehaviour
     void OnHit(int damage){
         //구미호 체력 감소
         monsterHP -= damage;
+        // //데미지받은사운드
+        // PlaySound("MonsterDamaged");
         //Debug.Log("현재 monster damage: "+monsterHP);
         
         //구미호 맞았을 때 표정 변화
@@ -103,6 +128,8 @@ public class Monster1 : MonoBehaviour
             return;
         }
 
+        //공격스킬사운드
+        PlaySound("MonsterAttack");
         Vector3 attackPos = transform.position + new Vector3(0, 0, 0);
         GameObject myBasicAttack = Instantiate(FoxCircle, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();

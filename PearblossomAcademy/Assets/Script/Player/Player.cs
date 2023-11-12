@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,12 @@ public class Player : MonoBehaviour
     public bool isSkill;
     public int skillIndex;
 
+    //오디오클립
+    public AudioClip audioPlayerAttack; //플레이어공격
+    // public AudioClip audioPlayerDamaged;  //플레이어데미지
+
+    AudioSource audioSource;
+
     public PlayManager myPlayManager;
     //public GameManager myGameManager;
 
@@ -37,10 +44,23 @@ public class Player : MonoBehaviour
 
     public Vector3 FanPos; //부채 위치
 
+    void PlaySound(String action){
+        switch(action){
+            case "PlayerAttack":
+                audioSource.clip = audioPlayerAttack;
+                break;
+            // case "PlayerDamaged":
+            //     audioSource.clip = audioPlayerDamaged;
+            //     break;
+        } 
+        audioSource.Play();
+    }
+
     void Awake()
     {
         cnt = 0;
         player = GetComponent<Rigidbody2D>();  
+        audioSource = GetComponent<AudioSource>();
         myPlayManager = GameObject.Find("PlayManager").GetComponent<PlayManager>(); 
         //myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         isSkill = false;
@@ -90,16 +110,26 @@ public class Player : MonoBehaviour
             {
                 switch(skillIndex)
                 {
-                    case 0: myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); break;
-                    case 1: myJujak.GetComponent<Jujak>().GoJujak();break;
-                    case 2: Shoot(); break;
-                    case 3: Shoot(); break;
-                    default: break;
+                    case 0: 
+                        myBlueDragon.GetComponent<BlueDragon>().GoBlueDragon(); 
+                        break;
+                    case 1: 
+                        myJujak.GetComponent<Jujak>().GoJujak();
+                        break;
+                    case 2: 
+                        Shoot(); 
+                        break;
+                    case 3: 
+                        Shoot(); 
+                        break;
+                    default: 
+                        break;
                 }
             }
             else
             {
                 Shoot();
+        
             }
 
             curDelay = 0;
@@ -115,6 +145,8 @@ public class Player : MonoBehaviour
         GameObject myBasicAttack = Instantiate(playerBasicAttack, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+        //기본스킬사운드
+        PlaySound("PlayerAttack");
     }
 
     void ReloadAttack()
@@ -126,6 +158,8 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "MonsterAttack")
         {
+            // //PlayerDamagedSound
+            // PlaySound("PlayerDamaged");
             if(!(isSkill && skillIndex==2)) //백호
             {
                 myPlayManager.playerLife--;            

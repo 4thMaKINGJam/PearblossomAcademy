@@ -11,6 +11,7 @@ public class BlueDragon : MonoBehaviour
     public GameObject blueDragonAttack; //청룡공격 prefab
     private Player myPlayer;
 
+
     void Awake()
     {
         myPlayer = GameObject.Find("Player").GetComponent<Player>();
