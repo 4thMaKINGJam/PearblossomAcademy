@@ -124,7 +124,7 @@ public class Monster1 : MonoBehaviour
         }
 
         //공격스킬사운드
-        PlaySound("MonsterAttack");
+        // PlaySound("MonsterAttack");
         Vector3 attackPos = transform.position + new Vector3(0, 0, 0);
         GameObject myBasicAttack = Instantiate(FoxCircle, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
