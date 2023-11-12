@@ -19,7 +19,8 @@ public class Monster4Attack : MonoBehaviour
     {
         if(collision.gameObject.tag == "Border")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
 
 
@@ -33,6 +34,7 @@ public class Monster4Attack : MonoBehaviour
     }
         void DestroyGameObject()
         {
-        Destroy(gameObject);
+            gameObject.SetActive(false);
+        //Destroy(gameObject);
         }
 }

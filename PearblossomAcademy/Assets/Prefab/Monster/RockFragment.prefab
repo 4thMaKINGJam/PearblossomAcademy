@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1165139449063916659}
   - component: {fileID: 7030578333910232959}
   - component: {fileID: -9128868143137439811}
-  - component: {fileID: -2182708942260207448}
+  - component: {fileID: 7965055869309411710}
   m_Layer: 0
   m_Name: RockFragment
   m_TagString: MonsterAttack
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &-2182708942260207448
+--- !u!114 &7965055869309411710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +133,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6394383795989398964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5399a2c287f273346beea151a42d5efe, type: 3}
+  m_Script: {fileID: 11500000, guid: 09efa58044660ae4889f490d99916bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

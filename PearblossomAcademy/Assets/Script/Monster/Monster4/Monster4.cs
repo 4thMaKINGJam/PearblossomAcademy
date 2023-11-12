@@ -149,6 +149,26 @@ public class Monster4 : MonoBehaviour
         
         yield return new WaitForSeconds(3f);
 
+        int[] randomRockOrder = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int shuffle = Random.Range(10, 100);
+        
+        for(int i=0; i<shuffle; i++)
+        {
+            int rand1 = Random.Range(0, numberOfFragments);
+            int rand2 = Random.Range(0, numberOfFragments);
+            int a = randomRockOrder[rand1];
+            randomRockOrder[rand1] = randomRockOrder[rand2];
+            randomRockOrder[rand2] = a;
+        }
+        for (int j=0; j<numberOfFragments; j++)
+        {
+            Rigidbody2D fragmentRigid = rockFragments[randomRockOrder[j]].GetComponent<Rigidbody2D>();
+                fragmentRigid.AddForce(Vector2.left * explosionForce, ForceMode2D.Impulse);
+                Debug.Log(randomRockOrder[j]);
+                yield return new WaitForSeconds(0.5f);
+        }
+
+        /*
         int attempts = 0;
         while (usedIndexes.Count < numberOfFragments && attempts < numberOfFragments * 2)
         {
@@ -162,8 +182,8 @@ public class Monster4 : MonoBehaviour
             }
             attempts++;
         }
-        
-        yield return new WaitForSeconds(5f);
+        */
+        yield return new WaitForSeconds(3f);
         playManager.MonsterClear(3);
     }
 
