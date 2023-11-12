@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Time.timeScale=1;
-        stage_count = 2;
+        stage_count = 1;
 
     }
 
@@ -95,6 +95,23 @@ public class GameManager : MonoBehaviour
     }
     void reTry() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void OnEnable()
+    {
+          // 씬 매니저의 sceneLoaded에 체인을 건다.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    // 체인을 걸어서 이 함수는 매 씬마다 호출된다.
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 }

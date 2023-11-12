@@ -22,16 +22,16 @@ public class Monster1 : MonoBehaviour
     PlayManager playManager;
 
     //사운드
-    public AudioClip audioMonsterAttack; 
+    // public AudioClip audioMonsterAttack; 
     public AudioClip audioMonsterDie;
 
     AudioSource audioSource;
 
     void PlaySound(String action){
         switch(action){
-            case "MonsterAttack":
-                audioSource.clip = audioMonsterAttack;
-                break;
+            // case "MonsterAttack":
+            //     audioSource.clip = audioMonsterAttack;
+            //     break;
             case "MonsterDie":
                 audioSource.clip = audioMonsterDie;
                 break;

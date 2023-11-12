@@ -1398,7 +1398,7 @@ MonoBehaviour:
   handLeft: {fileID: 794070500}
   currentIndex: 0
   audioStart: {fileID: 8300000, guid: b9638dc1d34337a4d84b0235db61e8e1, type: 3}
-  audioFlip: {fileID: 8300000, guid: 311e8a2e536a82f488d43d3ec3c662a4, type: 3}
+  audioFlip: {fileID: 8300000, guid: cbc60287feae3ba46bb4abb4344d9cac, type: 3}
 --- !u!4 &850693092
 Transform:
   m_ObjectHideFlags: 0
