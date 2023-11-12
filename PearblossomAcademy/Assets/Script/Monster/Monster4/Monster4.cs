@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -150,12 +151,12 @@ public class Monster4 : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         int[] randomRockOrder = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int shuffle = Random.Range(10, 100);
+        int shuffle = UnityEngine.Random.Range(10, 100);
         
         for(int i=0; i<shuffle; i++)
         {
-            int rand1 = Random.Range(0, numberOfFragments);
-            int rand2 = Random.Range(0, numberOfFragments);
+            int rand1 = UnityEngine.Random.Range(0, numberOfFragments);
+            int rand2 = UnityEngine.Random.Range(0, numberOfFragments);
             int a = randomRockOrder[rand1];
             randomRockOrder[rand1] = randomRockOrder[rand2];
             randomRockOrder[rand2] = a;

@@ -131,10 +131,10 @@ public class Monster2 : MonoBehaviour
         fireRigid = myFireAttack.GetComponent<Rigidbody2D>();
 
         // 랜덤한 y 성분 생성
-        float randomY = Random.Range(-0.8f, 0.8f); // -1과 1 사이의 랜덤한 값
-        Vector2 randomDirection = new Vector2(-1, randomY).normalized; // 서쪽 방향으로 랜덤 벡터 생성
+        float RandomY = UnityEngine.Random.Range(-0.8f, 0.8f); // -1과 1 사이의 랜덤한 값
+        Vector2 RandomDirection = new Vector2(-1, RandomY).normalized; // 서쪽 방향으로 랜덤 벡터 생성
         // 랜덤한 방향으로 AddForce
-        fireRigid.AddForce(randomDirection * attackSpeed, ForceMode2D.Impulse);
+        fireRigid.AddForce(RandomDirection * attackSpeed, ForceMode2D.Impulse);
         // 0.5초 후 멈춤
         Invoke("Stop", 0.5f);
 

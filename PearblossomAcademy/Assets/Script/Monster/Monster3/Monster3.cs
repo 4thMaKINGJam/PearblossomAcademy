@@ -80,7 +80,7 @@ public class Monster3 : MonoBehaviour
             curDelay = 0;
 
             // 새로운 공격 선택
-            int i = Random.Range(0, 2);
+            int i = UnityEngine.Random.Range(0, 2);
             switch (i)
             {
                 case 0: // 음식 공격
@@ -191,7 +191,7 @@ public class Monster3 : MonoBehaviour
             return;
         }
         //무작위 세로 위치에서 트림 생성
-        float i = Random.Range(-3, 5);
+        float i = UnityEngine.Random.Range(-3, 5);
 
         Vector3 attackPos = transform.position + new Vector3(-1.0f, i, 0);
         GameObject myBasicAttack = Instantiate(Trim, attackPos, transform.rotation);

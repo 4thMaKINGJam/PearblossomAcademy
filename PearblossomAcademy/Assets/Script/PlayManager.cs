@@ -30,7 +30,7 @@ public class PlayManager : MonoBehaviour
     public bool isStartAttacking = true;
     public GameObject[] UltimateCircles;
     GameManager myGameManager;
-
+    
     void Awake()
     {
         bool[] usableSkill = new bool[] {true, false, false, false};
