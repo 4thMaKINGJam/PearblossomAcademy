@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();
         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
         //기본스킬사운드
-        PlaySound("PlayerAttack");
+        //PlaySound("PlayerAttack");
     }
 
     void ReloadAttack()
