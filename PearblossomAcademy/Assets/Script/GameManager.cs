@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
             myWhiteScreen.GetComponent<Image>().color = new Color(1,1,1,fadeCnt);
         }
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Ending");
 
     }
 
