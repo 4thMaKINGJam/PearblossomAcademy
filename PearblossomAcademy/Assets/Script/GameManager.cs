@@ -33,11 +33,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         isGameover = true;
 
-        blackScreen[0].SetActive(true);
-        gameImage[0].SetActive(true);
+        /*
+        GameObject myBlackScreen = GameObject.Find("BlackScreen");
+        myBlackScreen.SetActive(true);
+        GameObject myGameOverImage = GameObject.Find("GameOverImage");
+        myGameOverImage.SetActive(true);
+        */
+        GameObject myBlackScreen = Instantiate(blackScreen[0], GameObject.Find("Canvas").transform);
+        GameObject myGameOverImage = Instantiate(gameImage[0], GameObject.Find("Canvas").transform);
 
-        Button gotoMenu2 = GameObject.Find("BackToMenuBtn_o").GetComponent<Button>();
-        Button retry = GameObject.Find("retry").GetComponent<Button>();
+        Button gotoMenu2 = myGameOverImage.transform.Find("BackToMenuBtn_o").GetComponent<Button>();
+        Button retry = myGameOverImage.transform.Find("retry").GetComponent<Button>();
 
         gotoMenu2.onClick.AddListener(() => GoMenu());
         retry.onClick.AddListener(() => reTry());
@@ -56,13 +62,25 @@ public class GameManager : MonoBehaviour
 
         isGameover = true;
 
+        /*
         //BlackScreen 활성화
         blackScreen[0].SetActive(true);
         //GameOverImage 활성화
         gameImage[1].SetActive(true);
+        */
 
-        Button gotoMenu = GameObject.Find("BackToMenuBtn_c").GetComponent<Button>();
-        Button gotoNextStage = GameObject.Find("nextStage").GetComponent<Button>();
+        /*
+        GameObject myBlackScreen = GameObject.Find("BlackScreen");
+        myBlackScreen.SetActive(true);
+        GameObject myGameClearIamge = GameObject.Find("GameClearIamge");
+        myGameClearIamge.SetActive(true);
+        */
+
+        GameObject myBlackScreen = Instantiate(blackScreen[0], GameObject.Find("Canvas").transform);
+        GameObject myGameClearImage = Instantiate(gameImage[1], GameObject.Find("Canvas").transform);
+
+        Button gotoMenu = myGameClearImage.transform.Find("BackToMenuBtn_c").GetComponent<Button>();
+        Button gotoNextStage = myGameClearImage.transform.Find("nextStage").GetComponent<Button>();
 
         gotoMenu.onClick.AddListener(() => GoMenu());
         gotoNextStage.onClick.AddListener(() => nextStage());

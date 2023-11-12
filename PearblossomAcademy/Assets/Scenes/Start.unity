@@ -1639,8 +1639,8 @@ MonoBehaviour:
   stage_count: 0
   Stages: []
   gameImage:
-  - {fileID: 2791865005390099208, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
   - {fileID: 8704698071874690109, guid: 33dd30f89ecec44b584067402e2ed6a8, type: 3}
+  - {fileID: 2791865005390099208, guid: 8b9320280c46d43328ca553e844cb966, type: 3}
   blackScreen:
   - {fileID: 4333904028915371728, guid: 3e9c72a2b7d254a429cb6990a7c5f568, type: 3}
 --- !u!4 &1069033762
