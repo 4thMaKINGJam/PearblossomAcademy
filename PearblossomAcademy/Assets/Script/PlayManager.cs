@@ -58,7 +58,7 @@ public class PlayManager : MonoBehaviour
     {
         if(!isMultipleBoss)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             GameClear();
         }
 
@@ -83,7 +83,7 @@ public class PlayManager : MonoBehaviour
 
     public void GameClearFinal()
     {
-        myGameManager.GameClear();
+        myGameManager.GameClearFinal();
     }
 
     public void UltSkillActivate()
