@@ -51,7 +51,7 @@ public class BlueDragon : MonoBehaviour
     void Countdown()
     {
         curTime += Time.deltaTime;
-        Debug.Log(curTime);
+        // Debug.Log(curTime);
     }
 
     public void GoBlueDragon()

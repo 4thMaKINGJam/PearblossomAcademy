@@ -21,9 +21,9 @@ public class Monster1 : MonoBehaviour
     GameManager gameManager;
     PlayManager playManager;
 
-     //오디오클립
-    public AudioClip audioMonsterAttack; //몬스터공격
-    // public AudioClip audioMonsterDamaged;  //몬스터데미지
+    //사운드
+    public AudioClip audioMonsterAttack; 
+    public AudioClip audioMonsterDie;
 
     AudioSource audioSource;
 
@@ -32,9 +32,9 @@ public class Monster1 : MonoBehaviour
             case "MonsterAttack":
                 audioSource.clip = audioMonsterAttack;
                 break;
-            // case "MonsterDamaged":
-            //     audioSource.clip = audioMonsterDamaged;
-            //     break;
+            case "MonsterDie":
+                audioSource.clip = audioMonsterDie;
+                break;
         } 
         audioSource.Play();
     }
@@ -87,9 +87,6 @@ public class Monster1 : MonoBehaviour
     void OnHit(int damage){
         //구미호 체력 감소
         monsterHP -= damage;
-        // //데미지받은사운드
-        // PlaySound("MonsterDamaged");
-        //Debug.Log("현재 monster damage: "+monsterHP);
         
         //구미호 맞았을 때 표정 변화
         spriteRenderer.sprite = sprites[1];
@@ -97,8 +94,8 @@ public class Monster1 : MonoBehaviour
         Debug.Log(monsterHP);
         //구미호 사망
         if(monsterHP <=0){
-            //구미호 죽음 sprite - 표정 바꾸기
-
+            //소리
+            PlaySound("MonsterDie");
             spriteRenderer.sprite = sprites[1];
             playManager.MonsterClear(0);
             //Time.timeScale = 0;
@@ -125,7 +122,7 @@ public class Monster1 : MonoBehaviour
         }
 
         //공격스킬사운드
-        //PlaySound("MonsterAttack");
+        PlaySound("MonsterAttack");
         Vector3 attackPos = transform.position + new Vector3(0, 0, 0);
         GameObject myBasicAttack = Instantiate(FoxCircle, attackPos, transform.rotation);
         Rigidbody2D rigid = myBasicAttack.GetComponent<Rigidbody2D>();

@@ -29,10 +29,8 @@ public class Player : MonoBehaviour
     public bool isSkill;
     public int skillIndex;
 
-    //오디오클립
-    public AudioClip audioPlayerAttack; //플레이어공격
-    // public AudioClip audioPlayerDamaged;  //플레이어데미지
-
+    //사운드
+    public AudioClip audioPlayerAttack; 
     AudioSource audioSource;
 
     public PlayManager myPlayManager;
@@ -124,6 +122,7 @@ public class Player : MonoBehaviour
 
     void Attack()
     {
+
         if (curDelay < attackDelay)
         {
             return;
@@ -154,6 +153,9 @@ public class Player : MonoBehaviour
             else
             {
                 Shoot();
+                //player공격사운드
+                PlaySound("PlayerAttack");
+                Debug.Log("playerAttack소리");
         
             }
 
