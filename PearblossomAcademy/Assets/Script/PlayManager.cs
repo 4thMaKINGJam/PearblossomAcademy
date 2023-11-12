@@ -81,9 +81,9 @@ public class PlayManager : MonoBehaviour
         myGameManager.GameClear();
     }
 
-    void GameClearFinal()
+    public void GameClearFinal()
     {
-
+        myGameManager.GameClear();
     }
 
     public void UltSkillActivate()

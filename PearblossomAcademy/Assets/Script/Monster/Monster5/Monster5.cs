@@ -82,6 +82,7 @@ public class Monster5 : MonoBehaviour
             case 0: isMonsterMoving[0] = false; myMonsterList[0].SetActive(false); GoMonster2(); Debug.Log("일단 여기까진 진입"); break;
             case 1: isMonsterMoving[1] = false; myMonsterList[1].SetActive(false); GoMonster3(); break;
             case 2: isMonsterMoving[2] = false; myMonsterList[2].SetActive(false); GoMonster4(); break;
+            case 3: playManager.GameClearFinal(); break;
             default: break;
         }
     }
