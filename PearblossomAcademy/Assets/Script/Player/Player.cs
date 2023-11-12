@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -80,10 +81,34 @@ public class Player : MonoBehaviour
 
     void AddSkills()
     {
-        myBlueDragon = Instantiate(BlueDragon, transform);
-        myJujak = Instantiate(Jujak, transform);
-        myWhiteTiger = Instantiate(WhiteTiger, transform);
-        myHyunmu = Instantiate(Hyunmu, transform);
+        switch(SceneManager.GetActiveScene().name)
+        {
+            case "BlueDragon": 
+                myBlueDragon = Instantiate(BlueDragon, transform);
+                break;
+            case "Jujak": 
+                myBlueDragon = Instantiate(BlueDragon, transform);
+                myJujak = Instantiate(Jujak, transform);
+                break;
+            case "WhiteTiger": 
+                myBlueDragon = Instantiate(BlueDragon, transform);
+                myJujak = Instantiate(Jujak, transform);
+                myWhiteTiger = Instantiate(WhiteTiger, transform);
+                break;
+            case "Hyunmu": 
+                myBlueDragon = Instantiate(BlueDragon, transform);
+                myJujak = Instantiate(Jujak, transform);
+                myWhiteTiger = Instantiate(WhiteTiger, transform);
+                myHyunmu = Instantiate(Hyunmu, transform);
+                break;
+            case "YellowDragon": 
+                myBlueDragon = Instantiate(BlueDragon, transform);
+                myJujak = Instantiate(Jujak, transform);
+                myWhiteTiger = Instantiate(WhiteTiger, transform);
+                myHyunmu = Instantiate(Hyunmu, transform);
+                break;
+            default: break;
+        }
     }
 
     void Move()
