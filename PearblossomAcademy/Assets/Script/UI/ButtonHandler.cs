@@ -23,7 +23,8 @@ public class ButtonHandler : MonoBehaviour
 
     void Start()
     {
-        unlock_stage = gameManager.stage_count;
+        //unlock_stage = gameManager.stage_count;
+        unlock_stage = 6;
         Debug.Log(unlock_stage);
 
         for(int i=1; i<6; i++)
@@ -88,26 +89,32 @@ public class ButtonHandler : MonoBehaviour
     if (activeObject == main_book[0])  // main_intro와 비교
     {
         SceneManager.LoadScene("Intro");
+        DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[1])  // main_bdrgn와 비교
     {
         SceneManager.LoadScene("BlueDragon");
+        DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[2])  // main_jj와 비교
     {
         SceneManager.LoadScene("Jujak");
+        DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[3])  // main_whitetg와 비교
     {
         SceneManager.LoadScene("WhiteTiger");
+        DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[4])  // main_hm와 비교
     {
         SceneManager.LoadScene("Hyunmu");
+        DontDestroyOnLoad(gameManager);
     }
     else if (activeObject == main_book[5])  // main_ydrgn와 비교
     {
         SceneManager.LoadScene("YellowDragon");
+        DontDestroyOnLoad(gameManager);
     }
 }
 

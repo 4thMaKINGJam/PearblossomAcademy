@@ -1061,6 +1061,8 @@ MonoBehaviour:
   playerBasicAttack: 20
   playerJujakAttack: 40
   playerHyunmuAttack: 80
+  isMultipleBoss: 1
+  isStartAttacking: 1
   UltimateCircles:
   - {fileID: 1687915186}
   - {fileID: 756184342}
@@ -1228,7 +1230,7 @@ Transform:
   - {fileID: 267331017}
   - {fileID: 1707761641}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083401343
 GameObject:
@@ -1297,60 +1299,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1133388816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1133388818}
-  - component: {fileID: 1133388817}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1133388817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133388816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eeb271a6e0d2bf4e88fe23b7ec94eec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usableSkill: 00000000
-  isGameover: 0
-  sceneCount: 0
-  stage_count: 0
-  Stages: []
-  gameImage:
-  - {fileID: 1439174762}
-  - {fileID: 1923562527}
-  blackScreen:
-  - {fileID: 987052905}
---- !u!4 &1133388818
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1133388816}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.510944, y: 2.0318117, z: 21128.545}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133473964
 GameObject:

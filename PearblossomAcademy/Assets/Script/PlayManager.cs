@@ -29,7 +29,7 @@ public class PlayManager : MonoBehaviour
     public int playerJujakAttack = 40;
     public int playerHyunmuAttack = 80;
 
-    public bool isMultipleBoss = true;
+    public bool isMultipleBoss = false;
 
     //public int thisMapIndex = 5;
 
