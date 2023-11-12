@@ -56,7 +56,6 @@ public class Monster5 : MonoBehaviour
         GameObject myMonster2 = Instantiate(Monster2, StartPos, transform.rotation);
         myMonsterList.Add(myMonster2);
         isMonsterMoving[1] = true;
-        Debug.Log("go monster 2");
     }
 
     void GoMonster3()

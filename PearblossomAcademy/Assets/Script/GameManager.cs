@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     //스테이지 종료 UI
     public GameObject[] gameImage; //gameImage[0]: gameOver / gameImage[1]:gameClear
-    public GameObject[] blackScreen;
+    public GameObject[] blackwhiteScreen;
+    private GameObject myWhiteScreen; 
 
     void Awake()
     {
@@ -26,20 +27,13 @@ public class GameManager : MonoBehaviour
 
     }
 
-
     //게임오버함수 - 다른 player script에서 OnPlayerDead 함수 호출해줘야 돼
     public void GameOver() {
         //시간멈춤
         Time.timeScale = 0;
         isGameover = true;
 
-        /*
-        GameObject myBlackScreen = GameObject.Find("BlackScreen");
-        myBlackScreen.SetActive(true);
-        GameObject myGameOverImage = GameObject.Find("GameOverImage");
-        myGameOverImage.SetActive(true);
-        */
-        GameObject myBlackScreen = Instantiate(blackScreen[0], GameObject.Find("Canvas").transform);
+        GameObject myBlackScreen = Instantiate(blackwhiteScreen[0], GameObject.Find("Canvas").transform);
         GameObject myGameOverImage = Instantiate(gameImage[0], GameObject.Find("Canvas").transform);
 
         Button gotoMenu2 = myGameOverImage.transform.Find("BackToMenuBtn_o").GetComponent<Button>();
@@ -54,7 +48,7 @@ public class GameManager : MonoBehaviour
     //게임Clear함수
     public void GameClear() {
         
-
+        Time.timeScale = 0;
         stage_count++;
         Debug.Log(stage_count);
         //시간멈춤
@@ -62,21 +56,7 @@ public class GameManager : MonoBehaviour
 
         isGameover = true;
 
-        /*
-        //BlackScreen 활성화
-        blackScreen[0].SetActive(true);
-        //GameOverImage 활성화
-        gameImage[1].SetActive(true);
-        */
-
-        /*
-        GameObject myBlackScreen = GameObject.Find("BlackScreen");
-        myBlackScreen.SetActive(true);
-        GameObject myGameClearIamge = GameObject.Find("GameClearIamge");
-        myGameClearIamge.SetActive(true);
-        */
-
-        GameObject myBlackScreen = Instantiate(blackScreen[0], GameObject.Find("Canvas").transform);
+        GameObject myBlackScreen = Instantiate(blackwhiteScreen[0], GameObject.Find("Canvas").transform);
         GameObject myGameClearImage = Instantiate(gameImage[1], GameObject.Find("Canvas").transform);
 
         Button gotoMenu = myGameClearImage.transform.Find("BackToMenuBtn_c").GetComponent<Button>();
@@ -84,6 +64,25 @@ public class GameManager : MonoBehaviour
 
         gotoMenu.onClick.AddListener(() => GoMenu());
         gotoNextStage.onClick.AddListener(() => nextStage());
+    }
+
+    public void GameClearFinal()
+    {
+        Time.timeScale = 0;
+        myWhiteScreen = Instantiate(blackwhiteScreen[1], GameObject.Find("Canvas").transform);
+        StartCoroutine(FadeIn());
+    }
+
+    IEnumerator FadeIn()
+    {
+        float fadeCnt = 0;
+
+        while (fadeCnt < 1.0f)
+        {
+            fadeCnt += 0.1f;
+            yield return new WaitForSeconds(0.01f);
+            myWhiteScreen.GetComponent<Image>().color = new Color(1,1,1,fadeCnt);
+        }
     }
 
     void GoMenu() {
