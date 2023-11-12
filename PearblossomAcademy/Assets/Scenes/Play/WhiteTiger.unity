@@ -1924,6 +1924,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1684896697
       objectReference: {fileID: 0}
+    - target: {fileID: 8566357921728470380, guid: 17b0d7a5955b53d41a4f2b0268aaf21a, type: 3}
+      propertyPath: audioMonsterDie
+      value: 
+      objectReference: {fileID: 8300000, guid: 6128862d63404a544b80c627e058fb80, type: 3}
     - target: {fileID: 8566357921728470381, guid: 17b0d7a5955b53d41a4f2b0268aaf21a, type: 3}
       propertyPath: m_RootOrder
       value: 0
