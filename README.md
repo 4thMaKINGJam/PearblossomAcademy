@@ -7,6 +7,8 @@
 ## 프로젝트 소개
 
 **배꽃학당 요술사**는 한국의 마법학교를 배경으로 한 2D 플랫폼 게임으로, 플레이어는 각기 다른 능력을 가진 캐릭터들을 조작하여 여러 스테이지를 클리어합니다. 각 스테이지는 전통적인 한국 요괴와의 전투를 포함하며, 스토리와 필살기 등을 활용해 적들을 물리치고 다음 단계로 나아가는 것이 목표입니다.
+![Pearblossom Academy](https://github.com/4thMaKINGJam/PearblossomAcademy/blob/main/images/0.png)
+
 
 ---
 
@@ -28,6 +30,8 @@
 ---
 
 ### 게임 플레이 방식
+![Pearblossom Academy2](https://github.com/4thMaKINGJam/PearblossomAcademy/blob/main/images/1.png)
+
 
 1. **초기 화면**: 게임의 시작 화면으로, 플레이어는 다양한 설정을 선택할 수 있습니다.
 2. **스테이지 진행**: 서막에서 시작하여 청룡, 주작, 백호, 현무, 황룡 순으로 진행됩니다.
